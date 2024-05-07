@@ -63,7 +63,7 @@ pipeline {
         junit testResults: '**/target/surefire-reports/*.xml, **/target/failsafe-reports/*.xml'
       }
     }
-
+  }
   post {
     cleanup {
       cleanWs()
