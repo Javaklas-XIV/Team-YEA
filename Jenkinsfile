@@ -18,25 +18,6 @@ pipeline {
     jdk 'JDK21'
   }
   stages {
-    stage('Set Version') {
-      when { not { equals(actual: "${VERSION}", expected: "${PREV_VERSION}") } }
-      steps {
-        script {
-          SNAPSHOT_STRING = (BRANCH_NAME == 'main') ? "" : "-SNAPSHOT"
-        }
-        sh "git checkout $BRANCH_NAME"
-        sh "mvn versions:set -DnewVersion=${VERSION}${SNAPSHOT_STRING}"
-        sh 'git commit -am "ci: Updated version number."'
-        withCredentials([string(credentialsId: 'Github-token', variable: 'TOKEN')]) {
-          script {
-            REPO_URL_WITH_AUTH = 'https://${TOKEN}@github.com/Javaklas-XIV/${REPO_NAME}.git'
-          }
-          sh "git config remote.origin.url ${REPO_URL_WITH_AUTH}"
-          sh "git push origin ${BRANCH_NAME}"
-        }
-      }
-    }
-
     stage('Unit Tests') {
       when {
         not {
