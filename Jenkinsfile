@@ -64,29 +64,6 @@ pipeline {
       }
     }
 
-    stage('Github release') {
-      when {
-        allOf {
-          not { equals(actual: "${VERSION}", expected: "${PREV_VERSION}") }
-          branch 'main'
-        }
-      }
-      steps {
-        script {
-          id = release()
-          addToRelease(id,
-                       "compose.yaml",
-                       "./target/classes/compose.yaml",
-                       "application/yaml")
-          addToRelease(id,
-                       "HelloWorld.jar",
-                       "./target/HelloWorld-jar-with-dependencies.jar",
-                       "application/java-archive")
-        }
-      }
-    }
-  }
-
   post {
     cleanup {
       cleanWs()
