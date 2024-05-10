@@ -1,20 +1,21 @@
 package nl.YEA.model;
 
 import java.util.List;
+import java.util.Map;
 
-public class MeerkeuzeVraag extends Vraag {
+public class ComplexeVraag extends Vraag {
     private int minAantalKeuzes;
     private int maxAantalKeuzes;
-    private List<String> keuzemogelijkheden;
+    private Map<String, List<Vraag>> keuzemogelijkheden;
 
-    public MeerkeuzeVraag(String beschrijving, List<String> keuzemogelijkheden, int minAantalKeuzes, int maxAantalKeuzes) {
+    public ComplexeVraag(String beschrijving, Map<String, List<Vraag>> keuzemogelijkheden, int minAantalKeuzes, int maxAantalKeuzes) {
         super(beschrijving);
         this.keuzemogelijkheden = keuzemogelijkheden;
         this.minAantalKeuzes = minAantalKeuzes;
         this.maxAantalKeuzes = maxAantalKeuzes;
     }
 
-    public MeerkeuzeVraag(String beschrijving, List<String> keuzemogelijkheden) {
+    public ComplexeVraag(String beschrijving, Map<String, List<Vraag>> keuzemogelijkheden) {
         this(beschrijving, keuzemogelijkheden, 1, 1);
     }
 

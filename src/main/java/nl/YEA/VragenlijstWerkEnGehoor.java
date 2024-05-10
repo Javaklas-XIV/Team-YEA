@@ -1,11 +1,9 @@
 package nl.YEA;
 
-import nl.YEA.model.MeerkeuzeVraag;
-import nl.YEA.model.NumeriekeVraag;
-import nl.YEA.model.OpenVraag;
-import nl.YEA.model.Vraag;
+import nl.YEA.model.*;
 
 import java.util.List;
+import java.util.Map;
 
 public class VragenlijstWerkEnGehoor {
 
@@ -164,7 +162,9 @@ public class VragenlijstWerkEnGehoor {
         List<String> optiesFrequentie = List.of("bijna nooit", "soms", "vaak", "bijna altijd");
         List<String> optiesHoeveelheid1 = List.of("nee", "een beetje", "veel", "zeer veel");
         List<String> optiesHoeveelheid2 = List.of("geen", "een beetje", "matig", "veel", "zeer veel");
-
+        Map<String, List<Vraag>> optiesNeeJaNamelijk = Map.of(
+                "nee", null,
+                "ja", List.of(new OpenVraag("namelijk?")));
 
         List<Vraag> vlWerkEnGehoor = List.of(
                 /* Deel 1 Persoonlijke informatie */
@@ -180,8 +180,7 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(opleiding, List.of(oLagerOnderwijs, oLagerBeroepsonderwijs,
                         oMiddelbaarAlgemeenOnderwijs, oMiddelbaarBeroepsonderwijs, oVoortgezetAlgemeen, oHogerBeroepsonderwijs,
                         oHogerAlgemeenEnWetenschappelijkOnderwijs)),
-//        private final String hobby = "Heeft u hobby’s?";
-
+                new ComplexeVraag(hobby, optiesNeeJaNamelijk),
 
                 /* Deel 2 Algemene werkinformatie */
                 new OpenVraag(d2v1),
@@ -191,7 +190,9 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d2v4, optiesNeeJa),
                 new NumeriekeVraag(d2v5, 0, 70),
                 new MeerkeuzeVraag(d2v6, List.of("vast", "tijdelijk")),
-//        new MeerkeuzeVraag(d2v7, optiesNeeJa),
+                new ComplexeVraag(d2v7, Map.of(
+                        "nee", null,
+                        "ja", List.of(new OpenVraag("sinds?"), new OpenVraag("vanwege?")))),
 //        private final String d2v8 = "Hoeveel dagen heeft u in de afgelopen 12 maanden verzuimd wegens ziekte of " +
 //                "overbelasting? Wat was de precieze reden van verzuim? Het gaat om de dagen die u volledig verzuimd heeft.";
 
@@ -199,20 +200,22 @@ public class VragenlijstWerkEnGehoor {
                 /* Deel 3 Gehoor, medische voorgeschiedenis en hoorhulpmiddelen */
                 new OpenVraag(d3v1),
                 new OpenVraag(d3v2),
-//        private final String d3v3 = "Heeft u een verleden van operaties aan het oor en zo ja, kunt u omschrijven welke " +
-//                "operaties?";
+                new ComplexeVraag(d3v3, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v4, optiesNeeJa),
-//        private final String d3v5 = "Zijn er activiteiten waar u buiten werktijd NIET meer aan deelneemt, sinds u " +
-//                "slechthorend bent?";
+                new ComplexeVraag(d3v5, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v6, optiesNeeJa),
                 new MeerkeuzeVraag(d3v7, optiesNeeJa),
                 new MeerkeuzeVraag(d3v8, optiesNeeJa),
                 new MeerkeuzeVraag(d3v9, List.of("goed", "redelijk", "slecht")),
                 new MeerkeuzeVraag(d3v10, optiesNeeJa),
-//        private final String d3v11 = "Wordt u op dit moment begeleid door uw bedrijfsarts in verband met een\n" +
-//                "     gezondheidsprobleem?";
+                new ComplexeVraag(d3v11, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v12, optiesNeeJa),
                 new MeerkeuzeVraag(d3v13, optiesNeeJa),
+//                new ComplexeVraag(d3v14, Map.of(
+//                        "nee", null,
+//                        "ja, links", ,
+//                        "ja, rechts",
+//                )),
 //        private final String d3v14 = "Draagt u hoortoestellen?";
 //        private final String d3v15 = "Draagt u tijdens uw werk uw hoortoestellen (bij ja op vraag 14)?";
 //        private final String d3v16 = "Draagt u buiten uw werk uw hoortoestellen (bij ja op vraag 14)?";
