@@ -13,7 +13,7 @@ public class HoofdScherm implements Scherm{
         while (true) {
             inOutputController= InOutputController.getInstance();
             inOutputController.print("maak je keuze:\n"+
-                    "[1]: form invullen.\n"+
+                    "[1]: vragenlijst invullen.\n"+
                     "[2]: overzicht ingevulde forms.\n"+
                     "[x]: programma afsluiten.\n");
             switch (inOutputController.getNextLine()){

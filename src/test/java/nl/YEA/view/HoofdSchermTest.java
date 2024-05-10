@@ -24,7 +24,7 @@ class HoofdSchermTest {
         InOutputController.setInOutputController(inOutputControllerMock);
     }
     @Test
-    void hoofdschermIsClosed() {
+    void hoofdSchermIsClosed() {
         when(inOutputControllerMock.getNextLine()).thenReturn("x");
         doNothing().when(inOutputControllerMock).printNl(any());
         sut.show();
