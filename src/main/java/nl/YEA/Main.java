@@ -1,5 +1,9 @@
 package nl.YEA;
 
-public class Main{
-    public static void main(String[] args){}
+import nl.YEA.view.InOutputController;
+
+public class Main {
+    public static void main(String[] args) {
+        InOutputController.getInstance().getHoofdScherm().show();
+    }
 }
