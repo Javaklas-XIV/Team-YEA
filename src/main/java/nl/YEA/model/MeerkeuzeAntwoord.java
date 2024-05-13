@@ -1,4 +1,23 @@
 package nl.YEA.model;
 
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
 public class MeerkeuzeAntwoord extends Antwoord {
+
+    @Convert(converter = ObjectArrayConverter.class)
+    private List<Integer> antwoord = new ArrayList<>();
+
+    public MeerkeuzeAntwoord(IngevuldeVragenlijst IV, int vraagid, int ...meerkeuze) {
+        super(IV, vraagid);
+        for(int keuze : meerkeuze) {
+            this.antwoord.add(keuze);
+        }
+    }
+
+    public MeerkeuzeAntwoord(){}
 }
+

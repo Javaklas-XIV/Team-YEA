@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="pattern_level_colors">
+            FATAL=bold magenta, ERROR=red, WARN=yellow bold, INFO=WHITE, DEBUG=green bold, TRACE=blue
+        </Property>
+        <property name="logpattern">
+            %highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n}{${pattern_level_colors}}
+        </property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout disableAnsi="false" pattern="${logpattern}"/>
+        </Console>
+        <RollingFile name="rolling-file" fileName="logs/app.log"
+                     filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="250 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- default -->
+        <Root level="INFO">
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="rolling-file"/>
+        </Root>
+
+        <Logger name="org.hibernate.SQL" level="DEBUG"/>
+        <!--<Logger name="org.hibernate.SQL_SLOW" level="DEBUG"/>-->
+        <Logger name="org.hibernate.orm.jdbc.bind" level="TRACE"/>
+    </Loggers>
+</Configuration>
