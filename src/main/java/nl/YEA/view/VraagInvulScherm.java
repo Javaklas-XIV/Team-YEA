@@ -1,12 +1,10 @@
 package nl.YEA.view;
 
-import nl.YEA.model.Vraag;
-
 public abstract class VraagInvulScherm implements Scherm {
-    private Vraag vraag;
+    private int vraagNr;
     private int navigationInput = 1;
-    public VraagInvulScherm (Vraag vraag){
-        this.vraag = vraag;
+    public VraagInvulScherm (int vraagNr){
+        this.vraagNr = vraagNr;
     }
 
     public int getNavigationInput() {

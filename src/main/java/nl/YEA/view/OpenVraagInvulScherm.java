@@ -5,12 +5,12 @@ import nl.YEA.model.Vraag;
 
 public class OpenVraagInvulScherm extends VraagInvulScherm{
 
-    public OpenVraagInvulScherm(OpenVraag vraag) {
+    public OpenVraagInvulScherm(int vraag) {
         super(vraag);
     }
 
     @Override
     public void show() {
-
+        InOutputController.getInstance().printNl("open");
     }
 }

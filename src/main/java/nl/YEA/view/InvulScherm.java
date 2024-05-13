@@ -1,21 +1,22 @@
 package nl.YEA.view;
 
-import nl.YEA.model.MeerkeuzeVraag;
-import nl.YEA.model.NumeriekeVraag;
-import nl.YEA.model.OpenVraag;
-import nl.YEA.model.Vraag;
+import nl.YEA.Singleton;
+import nl.YEA.controller.VraagController;
 
 public class InvulScherm implements Scherm{
+    Singleton singleton = Singleton.getInstance();
     @Override
     public void show() {
+        VraagController vraagController = singleton.getInvulController();
         boolean running = true;
-        int vraagNr = 0;
+        int vraagNr = -1;
+        int nextVraagNr = 1;
         while (running){
-            Vraag nextVraag = null;//TODO get volgende vraag
-            if (nextVraag != null){
-                VraagInvulScherm invulScherm = InOutputController.getInstance().getVraagInvulScherm(nextVraag);
+            vraagNr = vraagController.vraagenContains(nextVraagNr) ? nextVraagNr : -1;
+            if (vraagNr != -1){
+                VraagInvulScherm invulScherm = InOutputController.getInstance().getVraagInvulScherm(nextVraagNr);
                 invulScherm.show();
-                vraagNr += invulScherm.getNavigationInput();
+                nextVraagNr += invulScherm.getNavigationInput();
             }else{
                 running = false;
             }

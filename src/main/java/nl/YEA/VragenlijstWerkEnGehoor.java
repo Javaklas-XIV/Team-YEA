@@ -169,9 +169,9 @@ public class VragenlijstWerkEnGehoor {
         List<String> optiesFrequentie = List.of("bijna nooit", "soms", "vaak", "bijna altijd");
         List<String> optiesHoeveelheid = List.of("nee", "een beetje", "veel", "zeer veel");
         List<String> optiesHoeveelheid2 = List.of("geen", "een beetje", "matig", "veel", "zeer veel");
-        Map<String, List<Vraag>> optiesNeeJaNamelijk = Map.of(
+        /*Map<String, List<Vraag>> optiesNeeJaNamelijk = Map.of(
                 "nee", null,
-                "ja", List.of(new OpenVraag("namelijk?")));
+                "ja", List.of(new OpenVraag("namelijk?")));*/
 
         List<Vraag> vlWerkEnGehoor = List.of(
                 /* Deel 1 Persoonlijke informatie */
@@ -187,7 +187,7 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(opleiding, List.of(oLagerOnderwijs, oLagerBeroepsonderwijs,
                         oMiddelbaarAlgemeenOnderwijs, oMiddelbaarBeroepsonderwijs, oVoortgezetAlgemeen, oHogerBeroepsonderwijs,
                         oHogerAlgemeenEnWetenschappelijkOnderwijs)),
-                new ComplexeVraag(hobby, optiesNeeJaNamelijk),
+                //new ComplexeVraag(hobby, optiesNeeJaNamelijk),
 
 
                 /* Deel 2 Algemene werkinformatie */
@@ -198,26 +198,26 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d2v4, optiesNeeJa),
                 new NumeriekeVraag(d2v5, 0, 70),
                 new MeerkeuzeVraag(d2v6, List.of("vast", "tijdelijk")),
-                new ComplexeVraag(d2v7, Map.of(
+                /*new ComplexeVraag(d2v7, Map.of(
                         "nee", null,
-                        "ja", List.of(new OpenVraag("sinds?"), new OpenVraag("vanwege?")))),
+                        "ja", List.of(new OpenVraag("sinds?"), new OpenVraag("vanwege?")))),*/
 
 
                 /* Deel 3 Gehoor, medische voorgeschiedenis en hoorhulpmiddelen */
                 new OpenVraag(d3v1),
                 new OpenVraag(d3v2),
-                new ComplexeVraag(d3v3, optiesNeeJaNamelijk),
+                //new ComplexeVraag(d3v3, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v4, optiesNeeJa),
-                new ComplexeVraag(d3v5, optiesNeeJaNamelijk),
+                //new ComplexeVraag(d3v5, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v6, optiesNeeJa),
                 new MeerkeuzeVraag(d3v7, optiesNeeJa),
                 new MeerkeuzeVraag(d3v8, optiesNeeJa),
                 new MeerkeuzeVraag(d3v9, List.of("goed", "redelijk", "slecht")),
                 new MeerkeuzeVraag(d3v10, optiesNeeJa),
-                new ComplexeVraag(d3v11, optiesNeeJaNamelijk),
+                //new ComplexeVraag(d3v11, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v12, optiesNeeJa),
                 new MeerkeuzeVraag(d3v13, optiesNeeJa),
-                new ComplexeVraag(d3v14, Map.of(
+                /*new ComplexeVraag(d3v14, Map.of(
                         "nee", null,
                         "ja", List.of(
                                 new ComplexeVraag(d3v14_extra, Map.of(
@@ -233,8 +233,8 @@ public class VragenlijstWerkEnGehoor {
                                 new OpenVraag(d3v15),
                                 new OpenVraag(d3v16)
                         )
-                )),
-                new ComplexeVraag(d3v17, optiesNeeJaNamelijk),
+                )),*/
+                //new ComplexeVraag(d3v17, optiesNeeJaNamelijk),
 
 
                 /* Deel 4 Werkzaamheden en werkruimte */
@@ -243,13 +243,13 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d4v3b, optiesHoeveelheid),
                 new MeerkeuzeVraag(d4v4a, optiesFrequentie),
                 new MeerkeuzeVraag(d4v4b, optiesHoeveelheid),
-                new ComplexeVraag(d4v5a, Map.of(
+                /*new ComplexeVraag(d4v5a, Map.of(
                         "nee", null,
                         "ja", List.of(
                                 new OpenVraag(d4v5a_ja),
                                 new MeerkeuzeVraag(d4v5b, optiesHoeveelheid)
                         )
-                )),
+                )),*/
 
                 new MeerkeuzeVraag(d4v6a, optiesFrequentie),
                 new MeerkeuzeVraag(d4v6b, optiesHoeveelheid),
@@ -266,14 +266,14 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d5v1g, optiesNeeJa),
                 new MeerkeuzeVraag(d5v1h, optiesNeeJa),
                 new MeerkeuzeVraag(d5v1i, optiesNeeJa),
-                new ComplexeVraag(d5v1j, Map.of(
+                /*new ComplexeVraag(d5v1j, Map.of(
                         "nee", null,
                         "ja", List.of(new OpenVraag(d5v1j_ja))
                 )),
                 new ComplexeVraag(d5v1k, Map.of(
                         "nee", null,
                         "ja", List.of(new OpenVraag(d5v1k_ja))
-                )),
+                )),*/
 
                 new OpenVraag(overig)
         );
