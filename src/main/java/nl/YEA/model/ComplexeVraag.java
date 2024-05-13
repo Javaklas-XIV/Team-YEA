@@ -19,4 +19,13 @@ public class ComplexeVraag extends Vraag {
         this(beschrijving, keuzemogelijkheden, 1, 1);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.getBeschrijving());
+        for (Map.Entry<String, List<Vraag>> e : keuzemogelijkheden.entrySet()) {
+            sb.append("\n o ").append(e.getKey());
+        }
+
+        return sb.toString();
+    }
 }
