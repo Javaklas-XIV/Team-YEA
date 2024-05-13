@@ -1,11 +1,11 @@
 package nl.YEA.model;
 
 public class OpenVraag extends Vraag {
-    private int maxAantalLetters;
+    private int maxAantalTekens;
 
     public OpenVraag(String beschrijving, int maxAantalLetters) {
         super(beschrijving);
-        this.maxAantalLetters = maxAantalLetters;
+        this.maxAantalTekens = maxAantalLetters;
     }
 
     public OpenVraag(String beschrijving) {
