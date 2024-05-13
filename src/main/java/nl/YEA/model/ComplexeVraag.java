@@ -19,6 +19,10 @@ public class ComplexeVraag extends Vraag {
         this(beschrijving, keuzemogelijkheden, 1, 1);
     }
 
+    public Map<String, List<Vraag>> getKeuzemogelijkheden() {
+        return keuzemogelijkheden;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.getBeschrijving());

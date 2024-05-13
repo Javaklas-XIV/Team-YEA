@@ -13,6 +13,10 @@ public abstract class Vraag {
         return beschrijving;
     }
 
+    public void setVraagnummer(int vraagnummer) {
+        this.vraagnummer = vraagnummer;
+    }
+
     @Override
     public String toString() {
         return beschrijving;

@@ -278,6 +278,25 @@ public class VragenlijstWerkEnGehoor {
                 new OpenVraag(overig)
         );
 
+        voegNummeringToe(vlWerkEnGehoor);
+
         return vlWerkEnGehoor;
+    }
+
+
+    private void voegNummeringToe(List<Vraag> vragenlijst) {
+        int i = 1;
+        for (Vraag v : vragenlijst) {
+            v.setVraagnummer(i++);
+            if (v instanceof ComplexeVraag) {
+                for (Map.Entry<String, List<Vraag>> e : ((ComplexeVraag) v).getKeuzemogelijkheden().entrySet()) {
+                    if (e.getValue() != null) {
+                        for (Vraag w : e.getValue()) {
+                            w.setVraagnummer(i++);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
