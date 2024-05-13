@@ -3,6 +3,8 @@ package nl.YEA.TempFolder;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import nl.YEA.model.*;
+import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
 public class TempMain {
     private static final EntityManagerFactory mySQL = Persistence.createEntityManagerFactory("MySQL");
@@ -12,10 +14,20 @@ public class TempMain {
         em = mySQL.createEntityManager();
     }
 
+
     public static void main(String[] args) {
-        TempTestRepo tempTestRepo = new TempTestRepo(em);
-        TempTest klaas = new TempTest("Klaas", "Male");
-        tempTestRepo.save(klaas);
+
+        IngevuldeVragenlijst iv = new IngevuldeVragenlijst();
+        IngevuldeVragenlijstRepo ingevuldeVragenlijstRepo = new IngevuldeVragenlijstRepo(em);
+
+        NumeriekAntwoord vraag1 = new NumeriekAntwoord(iv,1,25);
+        MeerkeuzeAntwoord vraag2 = new MeerkeuzeAntwoord(iv,2,1,3,4);
+        OpenAntwoord vraag3 = new OpenAntwoord(iv, 3,"Test");
+
+        ingevuldeVragenlijstRepo.addAntwoord(iv, vraag1);
+        ingevuldeVragenlijstRepo.addAntwoord(iv, vraag2);
+        ingevuldeVragenlijstRepo.addAntwoord(iv ,vraag3);
+        ingevuldeVragenlijstRepo.save(iv);
         em.close();
         mySQL.close();
     }
