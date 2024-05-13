@@ -12,7 +12,7 @@ public class InvulScherm implements Scherm{
         int vraagNr = -1;
         int nextVraagNr = 1;
         while (running){
-            vraagNr = vraagController.vraagenContains(nextVraagNr) ? nextVraagNr : -1;
+            vraagNr = vraagController.vraagExists(nextVraagNr) ? nextVraagNr : -1;
             if (vraagNr != -1){
                 VraagInvulScherm invulScherm = InOutputController.getInstance().getVraagInvulScherm(nextVraagNr);
                 invulScherm.show();
