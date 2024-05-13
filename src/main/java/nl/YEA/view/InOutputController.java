@@ -1,5 +1,10 @@
 package nl.YEA.view;
 
+import nl.YEA.model.MeerkeuzeVraag;
+import nl.YEA.model.NumeriekeVraag;
+import nl.YEA.model.OpenVraag;
+import nl.YEA.model.Vraag;
+
 import java.util.Scanner;
 
 public class InOutputController {
@@ -10,7 +15,7 @@ public class InOutputController {
     private Scherm overzichtScherm;
     private static InOutputController inOutputController;
 
-    private InOutputController(Scanner scanner, Scherm hoofdScherm, Scherm invulScherm, Scherm inzienScherm,
+    public InOutputController(Scanner scanner, Scherm hoofdScherm, Scherm invulScherm,  Scherm inzienScherm,
                               Scherm overzichtScherm) {
         this.scanner = scanner;
         this.hoofdScherm = hoofdScherm;
@@ -19,6 +24,7 @@ public class InOutputController {
         this.overzichtScherm = overzichtScherm;
         inOutputController = this;
     }
+
 
     public static InOutputController getInstance(){
         if (inOutputController == null){
@@ -56,5 +62,19 @@ public class InOutputController {
 
     public static void setInOutputController(InOutputController inOutputController) {
         InOutputController.inOutputController = inOutputController;
+    }
+
+    public VraagInvulScherm getVraagInvulScherm(Vraag vraag){
+        VraagInvulScherm invulScherm;
+        if (vraag instanceof MeerkeuzeVraag){
+            invulScherm = new MeerkeuzeVraagInvulScherm((MeerkeuzeVraag) vraag);
+        }else if (vraag instanceof NumeriekeVraag){
+            invulScherm = new  NumeriekeVraagInvulScherm((NumeriekeVraag) vraag);
+        }else if (vraag instanceof OpenVraag){
+            invulScherm = new OpenVraagInvulScherm((OpenVraag) vraag);
+        }else{
+            throw new RuntimeException("vraag type not handeled by in out Controller");
+        }
+        return invulScherm;
     }
 }
