@@ -1,33 +1,33 @@
 package nl.YEA.view;
 
 public class HoofdScherm implements Scherm{
-    private InOutputController inOutputController;
+    private InOutputUtil inOutputUtil;
 
     public HoofdScherm(){}
-    private HoofdScherm(InOutputController inOutputController) {
-        this.inOutputController = inOutputController;
+    private HoofdScherm(InOutputUtil inOutputUtil) {
+        this.inOutputUtil = inOutputUtil;
     }
 
     @Override
     public void show() {
         while (true) {
-            inOutputController= InOutputController.getInstance();
-            inOutputController.print("maak je keuze:\n"+
+            inOutputUtil = InOutputUtil.getInstance();
+            inOutputUtil.print("maak je keuze:\n"+
                     "[1]: vragenlijst invullen.\n"+
                     "[2]: overzicht ingevulde forms.\n"+
                     "[x]: programma afsluiten.\n");
-            switch (inOutputController.getNextLine()){
+            switch (inOutputUtil.getNextLine()){
                 case "1":
-                    inOutputController.getInvulScherm().show();
+                    inOutputUtil.getInvulScherm().show();
                     break;
                 case "2":
-                    inOutputController.getOverzichtScherm().show();
+                    inOutputUtil.getOverzichtScherm().show();
                     break;
                 case "x":
-                    inOutputController.printNl("afsluiten");
+                    inOutputUtil.printNl("afsluiten");
                     return;
                 default:
-                    inOutputController.printNl("ongeldige input");
+                    inOutputUtil.printNl("ongeldige input");
             }
 
         }

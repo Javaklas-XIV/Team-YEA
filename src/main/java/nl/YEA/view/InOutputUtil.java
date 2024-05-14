@@ -8,33 +8,33 @@ import nl.YEA.model.Vraag;
 
 import java.util.Scanner;
 
-public class InOutputController {
+public class InOutputUtil {
     private Scanner scanner;
     private Scherm hoofdScherm;
     private Scherm invulScherm;
     private Scherm inzienScherm;
     private Scherm overzichtScherm;
     private VraagController vraagController;
-    private static InOutputController inOutputController;
+    private static InOutputUtil inOutputUtil;
 
-    public InOutputController(Scanner scanner, Scherm hoofdScherm, Scherm invulScherm,  Scherm inzienScherm,
-                              Scherm overzichtScherm, VraagController vraagController) {
+    public InOutputUtil(Scanner scanner, Scherm hoofdScherm, Scherm invulScherm, Scherm inzienScherm,
+                        Scherm overzichtScherm, VraagController vraagController) {
         this.scanner = scanner;
         this.hoofdScherm = hoofdScherm;
         this.invulScherm = invulScherm;
         this.inzienScherm = inzienScherm;
         this.overzichtScherm = overzichtScherm;
         this.vraagController = vraagController;
-        inOutputController = this;
+        inOutputUtil = this;
     }
 
 
-    public static InOutputController getInstance(){
-        if (inOutputController == null){
-            inOutputController = new InOutputController(new Scanner(System.in), new HoofdScherm(), new InvulScherm(),
+    public static InOutputUtil getInstance(){
+        if (inOutputUtil == null){
+            inOutputUtil = new InOutputUtil(new Scanner(System.in), new HoofdScherm(), new InvulScherm(),
                     new InzienScherm(), new OverzichtScherm(), new VraagController());
         }
-        return inOutputController;
+        return inOutputUtil;
     }
     public String getNextLine() {
         return scanner.nextLine();
@@ -63,8 +63,8 @@ public class InOutputController {
         return overzichtScherm;
     }
 
-    public static void setInOutputController(InOutputController inOutputController) {
-        InOutputController.inOutputController = inOutputController;
+    public static void setInOutputController(InOutputUtil inOutputUtil) {
+        InOutputUtil.inOutputUtil = inOutputUtil;
     }
 
     public VraagInvulScherm getVraagInvulScherm(int vraagNr){
