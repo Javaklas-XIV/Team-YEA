@@ -287,3 +287,94 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 2024-05-14 12:33:32,151 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [3]
 2024-05-14 12:33:32,151 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [5]
 2024-05-14 12:33:32,152 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [16]
+2024-05-14 13:03:47,630 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:03:47,650 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:03:47,663 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:03:47,742 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:03:47,745 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:03:48,100 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:03:48,101 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:03:48,378 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:03:48,387 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:04:44,898 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:04:44,916 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:04:44,930 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:04:45,007 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:04:45,010 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:04:45,010 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:04:45,344 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:04:45,344 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:04:45,606 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:04:45,614 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:05:17,791 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:05:17,809 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:05:17,825 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:05:17,908 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:05:17,910 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:05:17,910 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:05:17,911 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:05:17,911 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:05:17,912 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:05:18,252 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:05:18,253 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:05:18,526 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:05:18,534 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:07:35,252 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:07:35,268 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:07:35,280 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:07:35,356 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:07:35,357 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:07:35,695 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:07:35,695 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:07:35,954 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:07:35,964 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:07:50,645 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:07:50,661 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:07:50,673 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:07:50,746 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:07:50,747 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:07:50,749 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:07:51,086 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:07:51,087 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:07:51,348 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:07:51,357 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:10:38,844 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:10:38,862 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:10:38,876 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:10:38,955 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:10:38,958 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:10:39,312 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:10:39,313 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:10:39,575 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:10:39,586 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:16:05,379 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:16:05,396 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:16:05,409 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:16:05,485 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:16:05,486 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:16:05,486 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:16:05,825 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:16:05,825 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:16:06,107 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:16:06,116 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@467ef400] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

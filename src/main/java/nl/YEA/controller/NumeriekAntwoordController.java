@@ -15,7 +15,7 @@ public class NumeriekAntwoordController extends AntwoordController {
             throw new OngeldigAntwoordException();
     }
 
-    private boolean antwoordGeldig(int vraagNr, int antwoord) {
+    public boolean antwoordGeldig(int vraagNr, int antwoord) {
         return antwoord >= nvController.getMinimum(vraagNr) && antwoord <= nvController.getMaximum(vraagNr);
     }
 
