@@ -5,7 +5,6 @@ import nl.YEA.exceptions.AntwoordIndexOutOfBoundsException;
 import nl.YEA.exceptions.ToFewAntwoordenException;
 import nl.YEA.exceptions.ToManyAntwoordenException;
 import nl.YEA.model.MeerkeuzeAntwoord;
-import nl.YEA.model.MeerkeuzeVraag;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
 public class MeerkeuzeAntwoordController extends AntwoordController{
@@ -20,7 +19,7 @@ public class MeerkeuzeAntwoordController extends AntwoordController{
             throw new ToManyAntwoordenException();
         }
         for (int i : antwoord){
-            if (i<0||i>vraagController.getMogenlijkeAntwoorden(vraagId).size()){
+            if (i<0||i>vraagController.getMogelijkeAntwoorden(vraagId).size()){
                 throw new AntwoordIndexOutOfBoundsException();
             }
         }

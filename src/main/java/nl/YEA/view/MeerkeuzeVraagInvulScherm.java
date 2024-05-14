@@ -19,7 +19,7 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         MeerkeuzeVraagController meerkeuzeVraagController = singleton.getMeerkeuzeVraagController();
         String vraagbeschrijving = meerkeuzeVraagController.getVraagBeschrijving(vraagNr);
         List<String> gekozenAntwoorden = new ArrayList<>();
-        List<String> mogenlijkeAntwoorden = meerkeuzeVraagController.getMogenlijkeAntwoorden(vraagNr);
+        List<String> mogelijkeAntwoorden = meerkeuzeVraagController.getMogelijkeAntwoorden(vraagNr);
         int max = meerkeuzeVraagController.getMaxKeuzes(vraagNr);
         int min = meerkeuzeVraagController.getMinKeuzes(vraagNr);
         boolean running = true;
@@ -32,11 +32,11 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
                 }
             }
             io.print("min: "+min+"  max: "+max+"\n");
-            io.print("maak u keuze:\n");
-            List<String> hedenMogenlijkeAntworden = new ArrayList<>(mogenlijkeAntwoorden);
-            hedenMogenlijkeAntworden.removeAll(gekozenAntwoorden);
-            printAntwoordKeuzes(io, hedenMogenlijkeAntworden);
-            int i = hedenMogenlijkeAntworden.size()+1;
+            io.print("maak uw keuze:\n");
+            List<String> nogKiesbaareAntworden = new ArrayList<>(mogelijkeAntwoorden);
+            nogKiesbaareAntworden.removeAll(gekozenAntwoorden);
+            printAntwoordKeuzes(io, nogKiesbaareAntworden);
+            int i = nogKiesbaareAntworden.size()+1;
             if (gekozenAntwoorden.size()>0) {
                 io.print("[" + i + "] : wis antwoorden\n");
                 i++;
@@ -44,26 +44,26 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
             if (gekozenAntwoorden.size()>=min){
                 io.print("[" + i + "] : akkoord\n");
             }
-            running = listenforKeuze(io,hedenMogenlijkeAntworden, gekozenAntwoorden, min,max);
+            running = listenforKeuze(io,nogKiesbaareAntworden, gekozenAntwoorden, min,max);
         }
         int[] antwoordIndexes = new int[gekozenAntwoorden.size()];
         for (int i = 0 ;i<antwoordIndexes.length;i++){
-            antwoordIndexes[i]= mogenlijkeAntwoorden.indexOf(gekozenAntwoorden.get(i));
+            antwoordIndexes[i]= mogelijkeAntwoorden.indexOf(gekozenAntwoorden.get(i));
         }
         singleton.getMeerkeuzeAntwoordController().addToList(vraagNr,antwoordIndexes);
 
     }
 
-    private List<String> printAntwoordKeuzes(InOutputUtil io, List<String> hedenMogenlijkeAntworden){
+    private List<String> printAntwoordKeuzes(InOutputUtil io, List<String> hedenMogelijkeAntworden){
         int i = 1;
-        for (String keuze:hedenMogenlijkeAntworden){
+        for (String keuze:hedenMogelijkeAntworden){
             io.print("["+i+"] : "+keuze+"\n");
             i++;
         }
-        return hedenMogenlijkeAntworden;
+        return hedenMogelijkeAntworden;
     }
 
-    private boolean listenforKeuze(InOutputUtil io, List<String> hedenMogenlijkeKeuzes, List<String> alGekozen,
+    private boolean listenforKeuze(InOutputUtil io, List<String> hedenMogelijkeKeuzes, List<String> alGekozen,
                                    int min, int max){
         String input = io.getNextLine();
         int keuze = 0;
@@ -73,10 +73,10 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
             io.print("geen nummer probeer opniew:\n");
             return true;
         }
-        int clearNr = alGekozen.size()>0?hedenMogenlijkeKeuzes.size()+1:-1;
-        int accept = (alGekozen.size()>=min?hedenMogenlijkeKeuzes.size()+(clearNr!=-1?2:1):-1);
-        if (keuze<=hedenMogenlijkeKeuzes.size()&&keuze>0){
-            alGekozen.add(hedenMogenlijkeKeuzes.get(keuze-1));
+        int clearNr = alGekozen.size()>0?hedenMogelijkeKeuzes.size()+1:-1;
+        int accept = (alGekozen.size()>=min?hedenMogelijkeKeuzes.size()+(clearNr!=-1?2:1):-1);
+        if (keuze<=hedenMogelijkeKeuzes.size()&&keuze>0){
+            alGekozen.add(hedenMogelijkeKeuzes.get(keuze-1));
             if (alGekozen.size()>=max){
                 return false;
             }else{
@@ -92,4 +92,5 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
             return true;
         }
     }
+    
 }

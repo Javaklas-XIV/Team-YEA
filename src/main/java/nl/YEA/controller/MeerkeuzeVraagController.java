@@ -5,7 +5,7 @@ import nl.YEA.model.MeerkeuzeVraag;
 import java.util.List;
 
 public class MeerkeuzeVraagController extends VraagController{
-    public List<String> getMogenlijkeAntwoorden(int vraagId){
+    public List<String> getMogelijkeAntwoorden(int vraagId){
         return ((MeerkeuzeVraag)getVraag(vraagId)).getKeuzemogelijkheden();
     }
 
