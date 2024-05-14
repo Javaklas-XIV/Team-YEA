@@ -96,3 +96,142 @@
 2024-05-14 12:20:22,352 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
 2024-05-14 12:20:22,609 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2024-05-14 12:20:22,617 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@39ace1a7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:43:55,899 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-14 13:43:55,924 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-14 13:43:55,938 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-14 13:43:56,027 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-14 13:43:56,029 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-14 13:43:56,029 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-14 13:43:56,029 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-14 13:43:56,029 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-14 13:43:56,030 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-14 13:43:56,392 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-14 13:43:56,392 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-14 13:43:56,664 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-14 13:43:56,672 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@49190ed6] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-14 13:44:41,283 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
+2024-05-14 13:44:41,303 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,304 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,304 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,304 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [1]
+2024-05-14 13:44:41,307 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,307 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,307 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,308 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [3]
+2024-05-14 13:44:41,309 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,309 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,309 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,309 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [10]
+2024-05-14 13:44:41,311 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,311 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,311 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,311 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [11]
+2024-05-14 13:44:41,312 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,313 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,313 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,313 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [13]
+2024-05-14 13:44:41,313 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,314 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,314 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,314 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [16]
+2024-05-14 13:44:41,314 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,315 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,315 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,315 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [18]
+2024-05-14 13:44:41,315 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,316 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,316 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,316 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [21]
+2024-05-14 13:44:41,317 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,317 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,317 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,317 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [22]
+2024-05-14 13:44:41,318 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,318 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,318 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,318 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [23]
+2024-05-14 13:44:41,318 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,319 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,319 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,319 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [24]
+2024-05-14 13:44:41,319 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,319 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,320 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,320 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [25]
+2024-05-14 13:44:41,320 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,321 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,321 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,321 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [26]
+2024-05-14 13:44:41,322 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,322 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,322 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,322 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [27]
+2024-05-14 13:44:41,322 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,323 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,323 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,323 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [28]
+2024-05-14 13:44:41,323 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,324 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,324 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,324 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [30]
+2024-05-14 13:44:41,324 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,325 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,325 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,325 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [31]
+2024-05-14 13:44:41,325 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,325 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,325 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,326 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [32]
+2024-05-14 13:44:41,326 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,326 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,326 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,326 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [33]
+2024-05-14 13:44:41,327 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,327 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,327 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,327 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [34]
+2024-05-14 13:44:41,328 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,328 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,328 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,328 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [35]
+2024-05-14 13:44:41,328 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,328 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,328 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,329 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [36]
+2024-05-14 13:44:41,329 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,329 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,329 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,329 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [37]
+2024-05-14 13:44:41,330 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,330 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,330 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,330 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [38]
+2024-05-14 13:44:41,331 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,331 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,331 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,331 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [39]
+2024-05-14 13:44:41,332 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,332 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,332 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,332 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [40]
+2024-05-14 13:44:41,332 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [41]
+2024-05-14 13:44:41,333 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,333 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [42]
+2024-05-14 13:44:41,334 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,334 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,334 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,334 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [43]
+2024-05-14 13:44:41,335 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,335 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,335 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,335 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [44]
+2024-05-14 13:44:41,336 DEBUG o.h.SQL [main] insert into MeerkeuzeAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
+2024-05-14 13:44:41,336 TRACE o.h.o.j.bind [main] binding parameter (1:VARCHAR) <- [0]
+2024-05-14 13:44:41,336 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [1]
+2024-05-14 13:44:41,336 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [45]
+2024-05-14 13:44:58,585 INFO o.h.o.c.pooling [main] HHH10001008: Cleaning up connection pool [jdbc:mysql://localhost:3306/DB]

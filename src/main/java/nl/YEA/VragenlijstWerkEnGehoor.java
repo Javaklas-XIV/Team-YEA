@@ -174,7 +174,6 @@ public class VragenlijstWerkEnGehoor {
                 "ja", List.of(new OpenVraag("namelijk?")));*/
 
         List<Vraag> vlWerkEnGehoor = List.of(
-                new MeerkeuzeVraag("is kaas",List.of("1","2","3","4"),1,3),
                 /* Deel 1 Persoonlijke informatie */
                 new OpenVraag(naam),
                 new MeerkeuzeVraag(geslacht, List.of("V", "M")),
