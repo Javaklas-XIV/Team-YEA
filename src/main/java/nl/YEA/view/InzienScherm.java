@@ -8,7 +8,6 @@ public class InzienScherm implements Scherm{
     Singleton singleton = Singleton.getInstance();
     @Override
     public void show() {
-        AntwoordController antwoordController = singleton.getAntwoordController();
         VraagController vraagController = singleton.getInvulController();
         boolean running = true;
         int vraagNr;

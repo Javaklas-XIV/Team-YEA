@@ -62,12 +62,36 @@ public class IngevuldeVragenlijstRepo {
         }
     }
 
-    public void loadIngevuldeVragenlijst(){
-
+    public void loadIngevuldeVragenlijst(IngevuldeVragenlijst ingevuldeVragenlijst){
+        IngevuldeVragenlijst result = null;
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id ="
+                            +ingevuldeVragenlijst.getId()+"", IngevuldeVragenlijst.class)
+                    .getSingleResult();
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            logger.error(e.getMessage(), e);
+        }
+        this.ingevuldeVragenlijst = result;
     }
 
     public List<IngevuldeVragenlijst> getNonLoadedIngevuldeVragenlijsten(){
-        return List.of(new IngevuldeVragenlijst());
+        List<IngevuldeVragenlijst> result = null;
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i", IngevuldeVragenlijst.class)
+                    .getResultList();
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            logger.error(e.getMessage(), e);
+        }
+        return result;
+        //return List.of(new IngevuldeVragenlijst());
     }
 
     //Klopt voor nu even niet

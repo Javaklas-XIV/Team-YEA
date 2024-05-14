@@ -19,7 +19,7 @@ public class OverzichtScherm implements Scherm{
                 io.print("["+i+"] ingevulde vragenlijst: "+ingevuldeVragenlijst.getId()+"\n");
                 i++;
             }
-            io.print("["+i+"] terug.\n");
+            io.print("[b] terug.\n");
             running=listenForInput(io, singleton, ingevuldeVragenlijsten);
         }
     }
@@ -30,14 +30,15 @@ public class OverzichtScherm implements Scherm{
         try{
             keuze = Integer.parseInt(input);
         }catch (NumberFormatException e){
+            if (input.equals("b")){
+                return false;
+            }
             keuze = -1;
         }
         if (keuze<=ingevuldeVragenlijsten.size()&&keuze>0){
-            //TODO load ingevulde vragenlijst.
+            singleton.getRepo().loadIngevuldeVragenlijst(ingevuldeVragenlijsten.get(keuze-1));
             io.getInzienScherm().show();
             return true;
-        }else if (keuze==ingevuldeVragenlijsten.size()+1){
-            return false;
         }
         else{
             io.print("niet geldige invoer.\n");

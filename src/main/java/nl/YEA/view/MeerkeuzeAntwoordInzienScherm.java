@@ -21,7 +21,7 @@ public class MeerkeuzeAntwoordInzienScherm extends AntwoordInzienScherm{
         MeerkeuzeVraagController meerkeuzeVraagController = singleton.getMeerkeuzeVraagController();
         MeerkeuzeAntwoordController meerkeuzeAntwoordController = singleton.getMeerkeuzeAntwoordController();
         String vraagbeschrijving = meerkeuzeVraagController.getVraagBeschrijving(vraagNr);
-        List<String> mogelijkeAntwoorden = meerkeuzeVraagController.getMogenlijkeAntwoorden(vraagNr);
+        List<String> mogelijkeAntwoorden = meerkeuzeVraagController.getMogelijkeAntwoorden(vraagNr);
         int max = meerkeuzeVraagController.getMaxKeuzes(vraagNr);
         int min = meerkeuzeVraagController.getMinKeuzes(vraagNr);
         io.printNl(vraagbeschrijving);

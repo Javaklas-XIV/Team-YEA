@@ -16,7 +16,7 @@ public class IngevuldeVragenlijst {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany(mappedBy = "lijst", fetch = EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    @OneToMany(mappedBy = "lijst", fetch = LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
     private List<Antwoord> antwoorden = new ArrayList<>();
 
     public IngevuldeVragenlijst(){};
