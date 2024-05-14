@@ -4,10 +4,9 @@ import nl.YEA.controller.NumeriekAntwoordController;
 import nl.YEA.controller.NumeriekeVraagController;
 
 public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
-
     private NumeriekeVraagController nvController = new NumeriekeVraagController();
     private NumeriekAntwoordController naController = new NumeriekAntwoordController();
-
+    private InOutputUtil inOutputUtil = InOutputUtil.getInstance();
 
     public NumeriekeVraagInvulScherm(int vraag) {
         super(vraag);
@@ -15,7 +14,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
 
     @Override
     public void show() {
-        InOutputUtil.getInstance().printNl(nvController.getVraagBeschrijving(super.vraagNr));
+        inOutputUtil.printNl(nvController.getVraagBeschrijving(super.vraagNr));
 
         int antwoord = getNumeriekeInput();
         boolean geldigAntwoord = false;
@@ -24,14 +23,14 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
                 geldigAntwoord = true;
                 naController.addAntwoord(vraagNr, antwoord);
             } else {
-                InOutputUtil.getInstance().printNl("Ongeldig getal");
+                inOutputUtil.printNl("Ongeldig getal");
                 antwoord = getNumeriekeInput();
             }
         }
     }
 
     private int getNumeriekeInput() {
-        String strAntwoord = InOutputUtil.getInstance().getNextLine();
+        String strAntwoord = inOutputUtil.getNextLine();
         int antwoord = -1;
         boolean isGetal = false;
         while (!isGetal) {
@@ -39,7 +38,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
                 antwoord = Integer.parseInt(strAntwoord);
                 isGetal = true;
             } catch (NumberFormatException e) {
-                InOutputUtil.getInstance().printNl("Geen geldige input");
+                inOutputUtil.printNl("Geen geldige input");
                 strAntwoord = InOutputUtil.getInstance().getNextLine();
             }
         }
