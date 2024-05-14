@@ -1,6 +1,9 @@
 package nl.YEA.controller;
 
 import nl.YEA.Singleton;
+import nl.YEA.exceptions.AntwoordIndexOutOfBoundsException;
+import nl.YEA.exceptions.ToFewAntwoordenException;
+import nl.YEA.exceptions.ToManyAntwoordenException;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 import nl.YEA.view.InOutputUtil;
 import nl.YEA.view.MeerkeuzeVraagInvulScherm;
@@ -40,6 +43,27 @@ class MeerkeuzeAntwoordControllerTest {
         doNothing().when(ingevuldeVragenlijstRepoMock).addAntwoord(any());
         sut.addToList(1,new int[]{0});
         verify(ingevuldeVragenlijstRepoMock).addAntwoord(any());
+    }
+
+    @Test
+    void addAntwoordHappyToFewAntwoorden(){
+        when(meerkeuzeVraagControllerMock.getMinKeuzes(1)).thenReturn(2);
+        assertThrows(ToFewAntwoordenException.class, () -> sut.addToList(1,new int[]{0}));
+    }
+
+    @Test
+    void addAntwoordHappyToManyAntwoorden(){
+        when(meerkeuzeVraagControllerMock.getMinKeuzes(1)).thenReturn(1);
+        when(meerkeuzeVraagControllerMock.getMaxKeuzes(1)).thenReturn(1);
+        assertThrows(ToManyAntwoordenException.class, () -> sut.addToList(1,new int[]{0,1}));
+    }
+
+    @Test
+    void outOfBoundsAntwoord(){
+        when(meerkeuzeVraagControllerMock.getMinKeuzes(1)).thenReturn(1);
+        when(meerkeuzeVraagControllerMock.getMaxKeuzes(1)).thenReturn(1);
+        when(meerkeuzeVraagControllerMock.getMogenlijkeAntwoorden(1)).thenReturn(List.of("ja","nee"));
+        assertThrows(AntwoordIndexOutOfBoundsException.class, () -> sut.addToList(1,new int[]{10}));
     }
 
 
