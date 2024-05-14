@@ -1,6 +1,8 @@
 package nl.YEA.model;
 
 import jakarta.persistence.*;
+import nl.YEA.exceptions.AntwoordenNotLoadedException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,5 +28,29 @@ public class IngevuldeVragenlijst {
 
     public int getId() {
         return id;
+    }
+
+    public boolean containsAntwoord(int vraagNr){
+        if (antwoorden == null){
+            throw new AntwoordenNotLoadedException();
+        }
+        for (Antwoord antwoord:antwoorden){
+            if (antwoord.getVraagID()==vraagNr){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Antwoord getAntwoord(int vraagNr){
+        if (antwoorden == null){
+            throw new AntwoordenNotLoadedException();
+        }
+        for (Antwoord antwoord:antwoorden){
+            if (antwoord.getVraagID()==vraagNr){
+                return antwoord;
+            }
+        }
+        return null;
     }
 }

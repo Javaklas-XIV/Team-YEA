@@ -25,6 +25,13 @@ public class IngevuldeVragenlijstRepo {
         antwoord.setLijst(ingevuldeVragenlijst);
     }
 
+    public boolean ingevuldeVragenlijstContains(int vraagNr){
+        return ingevuldeVragenlijst.containsAntwoord(vraagNr);
+    }
+    public Antwoord ingevuldeVragenlijstGetAntwoord(int vraagNr){
+        return ingevuldeVragenlijst.getAntwoord(vraagNr);
+    }
+
     public void clearIngevuldeVragenLijst(){
         ingevuldeVragenlijst = new IngevuldeVragenlijst();
     }
@@ -60,7 +67,7 @@ public class IngevuldeVragenlijstRepo {
     }
 
     public List<IngevuldeVragenlijst> getNonLoadedIngevuldeVragenlijsten(){
-        return List.of();
+        return List.of(new IngevuldeVragenlijst());
     }
 
     //Klopt voor nu even niet

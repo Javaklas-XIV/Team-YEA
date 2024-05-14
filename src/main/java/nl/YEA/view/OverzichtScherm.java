@@ -16,15 +16,15 @@ public class OverzichtScherm implements Scherm{
             int i =1;
             List<IngevuldeVragenlijst> ingevuldeVragenlijsten = singleton.getRepo().getNonLoadedIngevuldeVragenlijsten();
             for (IngevuldeVragenlijst ingevuldeVragenlijst:ingevuldeVragenlijsten){
-                io.print("["+i+"] ingevulde vragenlijst: "+ingevuldeVragenlijst.getId());
+                io.print("["+i+"] ingevulde vragenlijst: "+ingevuldeVragenlijst.getId()+"\n");
                 i++;
             }
-            io.print("["+i+"] terug.");
-            inputListener(io, singleton, in)
+            io.print("["+i+"] terug.\n");
+            running=listenForInput(io, singleton, ingevuldeVragenlijsten);
         }
     }
 
-    private boolean inputListener(InOutputUtil io, Singleton singleton, List<IngevuldeVragenlijst> ingevuldeVragenlijsten){
+    private boolean listenForInput(InOutputUtil io, Singleton singleton, List<IngevuldeVragenlijst> ingevuldeVragenlijsten){
         String input = io.getNextLine();
         int keuze;
         try{
@@ -33,7 +33,8 @@ public class OverzichtScherm implements Scherm{
             keuze = -1;
         }
         if (keuze<=ingevuldeVragenlijsten.size()&&keuze>0){
-            //TODO call screen show
+            //TODO load ingevulde vragenlijst.
+            io.getInzienScherm().show();
             return true;
         }else if (keuze==ingevuldeVragenlijsten.size()+1){
             return false;

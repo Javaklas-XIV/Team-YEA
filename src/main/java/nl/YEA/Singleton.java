@@ -3,6 +3,7 @@ package nl.YEA;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import nl.YEA.controller.AntwoordController;
 import nl.YEA.controller.MeerkeuzeAntwoordController;
 import nl.YEA.controller.MeerkeuzeVraagController;
 import nl.YEA.controller.VraagController;
@@ -15,6 +16,7 @@ public class Singleton {
     private static Singleton singletonInstance;
     private List<Vraag> vragenlijst;
     private VraagController invulController;
+    private AntwoordController antwoordController;
     private MeerkeuzeVraagController meerkeuzeVraagController;
     private MeerkeuzeAntwoordController meerkeuzeAntwoordController;
     private IngevuldeVragenlijstRepo repo;
@@ -27,6 +29,7 @@ public class Singleton {
         repo = new IngevuldeVragenlijstRepo(em);
         meerkeuzeVraagController = new MeerkeuzeVraagController();
         meerkeuzeAntwoordController = new MeerkeuzeAntwoordController();
+        antwoordController = new AntwoordController();
     }
 
     public static Singleton getInstance() {
@@ -43,6 +46,10 @@ public class Singleton {
 
     public VraagController getInvulController() {
         return invulController;
+    }
+
+    public AntwoordController getAntwoordController() {
+        return antwoordController;
     }
 
     public IngevuldeVragenlijstRepo getRepo() {
