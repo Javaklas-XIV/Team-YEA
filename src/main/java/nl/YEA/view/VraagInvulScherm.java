@@ -1,7 +1,7 @@
 package nl.YEA.view;
 
 public abstract class VraagInvulScherm implements Scherm {
-    private int vraagNr;
+    protected int vraagNr;
     private int navigationInput = 1;
     public VraagInvulScherm (int vraagNr){
         this.vraagNr = vraagNr;

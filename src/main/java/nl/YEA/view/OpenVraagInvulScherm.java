@@ -1,8 +1,5 @@
 package nl.YEA.view;
 
-import nl.YEA.model.OpenVraag;
-import nl.YEA.model.Vraag;
-
 public class OpenVraagInvulScherm extends VraagInvulScherm{
 
     public OpenVraagInvulScherm(int vraag) {
@@ -11,6 +8,6 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
 
     @Override
     public void show() {
-        InOutputController.getInstance().printNl("open");
+        InOutputUtil.getInstance().printNl("open");
     }
 }

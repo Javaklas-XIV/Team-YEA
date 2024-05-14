@@ -1,8 +1,5 @@
 package nl.YEA.view;
 
-import nl.YEA.model.MeerkeuzeVraag;
-import nl.YEA.model.Vraag;
-
 public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
 
     public MeerkeuzeVraagInvulScherm(int vraag) {
@@ -11,6 +8,6 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
 
     @Override
     public void show() {
-        InOutputController.getInstance().printNl("meerkeuze");
+        InOutputUtil.getInstance().printNl("meerkeuze");
     }
 }

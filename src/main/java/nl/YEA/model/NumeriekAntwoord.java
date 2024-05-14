@@ -7,8 +7,8 @@ import jakarta.persistence.Entity;
 public class NumeriekAntwoord extends Antwoord {
     private int antwoord;
 
-    public NumeriekAntwoord(IngevuldeVragenlijst IV, int vraagID, int nummer){
-        super(IV, vraagID);
+    public NumeriekAntwoord(int vraagID, int nummer){
+        super(vraagID);
         this.antwoord = nummer;
     }
 
