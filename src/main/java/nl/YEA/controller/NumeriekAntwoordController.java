@@ -5,18 +5,15 @@ import nl.YEA.exceptions.OngeldigAntwoordException;
 import nl.YEA.model.NumeriekAntwoord;
 
 public class NumeriekAntwoordController extends AntwoordController {
-    private NumeriekeVraagController nvController = new NumeriekeVraagController();
 
     public void addAntwoord(int vraagNr, int antwoord) {
-        if (antwoordGeldig(vraagNr, antwoord)) {
-            Singleton.getInstance().getRepo().addAntwoord(new NumeriekAntwoord(vraagNr, antwoord));
+        Singleton singleton = Singleton.getInstance();
+        NumeriekeVraagController nvController = singleton.getNumeriekeVraagController();
+        if (antwoord >= nvController.getMinimum(vraagNr) && antwoord <= nvController.getMaximum(vraagNr)) {
+            singleton.getRepo().addAntwoord(new NumeriekAntwoord(vraagNr, antwoord));
         }
         else
             throw new OngeldigAntwoordException();
-    }
-
-    private boolean antwoordGeldig(int vraagNr, int antwoord) {
-        return antwoord >= nvController.getMinimum(vraagNr) && antwoord <= nvController.getMaximum(vraagNr);
     }
 
 }

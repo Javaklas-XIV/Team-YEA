@@ -1,11 +1,10 @@
 package nl.YEA.view;
 
+import nl.YEA.Singleton;
 import nl.YEA.controller.NumeriekAntwoordController;
 import nl.YEA.controller.NumeriekeVraagController;
 
 public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
-    private NumeriekeVraagController nvController = new NumeriekeVraagController();
-    private NumeriekAntwoordController naController = new NumeriekAntwoordController();
     private InOutputUtil inOutputUtil = InOutputUtil.getInstance();
 
     public NumeriekeVraagInvulScherm(int vraag) {
@@ -14,6 +13,10 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
 
     @Override
     public void show() {
+        Singleton singleton = Singleton.getInstance();
+        NumeriekeVraagController nvController = singleton.getNumeriekeVraagController();
+        NumeriekAntwoordController naController = singleton.getNumeriekAntwoordController();
+
         inOutputUtil.printNl(nvController.getVraagBeschrijving(super.vraagNr));
 
         int antwoord = getNumeriekeInput();
