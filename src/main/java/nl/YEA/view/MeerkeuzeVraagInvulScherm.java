@@ -2,9 +2,6 @@ package nl.YEA.view;
 
 import nl.YEA.Singleton;
 import nl.YEA.controller.MeerkeuzeVraagController;
-import nl.YEA.controller.VraagController;
-import nl.YEA.model.Antwoord;
-import nl.YEA.model.MeerkeuzeAntwoord;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,8 +50,8 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         for (int i = 0 ;i<antwoordIndexes.length;i++){
             antwoordIndexes[i]= mogenlijkeAntwoorden.indexOf(gekozenAntwoorden.get(i));
         }
-        Antwoord antwoord = new MeerkeuzeAntwoord(vraagNr, antwoordIndexes);
-        singleton.getRepo().addAntwoord(antwoord);
+        singleton.getMeerkeuzeAntwoordController().addToList(vraagNr,antwoordIndexes);
+
     }
 
     private List<String> printAntwoordKeuzes(InOutputUtil io, List<String> hedenMogenlijkeAntworden){

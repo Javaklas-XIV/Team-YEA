@@ -1,6 +1,7 @@
 package nl.YEA.view;
 
 import nl.YEA.Singleton;
+import nl.YEA.controller.MeerkeuzeAntwoordController;
 import nl.YEA.controller.MeerkeuzeVraagController;
 import nl.YEA.controller.VraagController;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
@@ -26,6 +27,8 @@ class MeerkeuzeVraagInvulSchermTest {
     @Mock
     private MeerkeuzeVraagController meerkeuzeVraagControllerMock;
     @Mock
+    private MeerkeuzeAntwoordController meerkeuzeAntwoordControllerMock;
+    @Mock
     private IngevuldeVragenlijstRepo ingevuldeVragenlijstRepoMock;
     private MeerkeuzeVraagInvulScherm sut = new MeerkeuzeVraagInvulScherm(1);
 
@@ -38,16 +41,16 @@ class MeerkeuzeVraagInvulSchermTest {
     @Test
     void JaNeeVraagHappyFlow(){
         when(singletonMock.getMeerkeuzeVraagController()).thenReturn(meerkeuzeVraagControllerMock);
+        when(singletonMock.getMeerkeuzeAntwoordController()).thenReturn(meerkeuzeAntwoordControllerMock);
         when(meerkeuzeVraagControllerMock.getMaxKeuzes(1)).thenReturn(1);
         when(meerkeuzeVraagControllerMock.getMinKeuzes(1)).thenReturn(1);
         when(meerkeuzeVraagControllerMock.getVraagBeschrijving(1)).thenReturn("");
         when(meerkeuzeVraagControllerMock.getMogenlijkeAntwoorden(1)).thenReturn(List.of("ja","nee"));
         when(inOutputUtilMock.getNextLine()).thenReturn("1");
-        when(singletonMock.getRepo()).thenReturn(ingevuldeVragenlijstRepoMock);
-        doNothing().when(ingevuldeVragenlijstRepoMock).addAntwoord(any());
+        doNothing().when(meerkeuzeAntwoordControllerMock).addToList(1, new int[]{0});
         doNothing().when(inOutputUtilMock).printNl(any());
         doNothing().when(inOutputUtilMock).print(any());
         sut.show();
-        verify(ingevuldeVragenlijstRepoMock).addAntwoord(any());
+        verify(meerkeuzeAntwoordControllerMock).addToList(1, new int[]{0});
     }
 }

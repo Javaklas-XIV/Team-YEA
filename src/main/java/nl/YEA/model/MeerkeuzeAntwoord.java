@@ -19,5 +19,9 @@ public class MeerkeuzeAntwoord extends Antwoord {
     }
 
     public MeerkeuzeAntwoord(){}
+
+    public List<Integer> getAntwoord() {
+        return antwoord;
+    }
 }
 
