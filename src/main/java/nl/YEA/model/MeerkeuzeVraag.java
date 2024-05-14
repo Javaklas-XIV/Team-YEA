@@ -18,6 +18,18 @@ public class MeerkeuzeVraag extends Vraag {
         this(beschrijving, keuzemogelijkheden, 1, 1);
     }
 
+    public List<String> getKeuzemogelijkheden() {
+        return keuzemogelijkheden;
+    }
+
+    public int getMinAantalKeuzes() {
+        return minAantalKeuzes;
+    }
+
+    public int getMaxAantalKeuzes() {
+        return maxAantalKeuzes;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.getBeschrijving());
