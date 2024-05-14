@@ -17,11 +17,12 @@ public abstract class Antwoord {
     @ManyToOne
     private IngevuldeVragenlijst lijst;
 
-    public Antwoord(IngevuldeVragenlijst lijst, int vraagid) {
+    public Antwoord(int vraagid) {
         this.vraagID = vraagid;
+    }
+    public void setLijst(IngevuldeVragenlijst lijst) {
         this.lijst = lijst;
     }
-
     public Antwoord() {
     }
 }

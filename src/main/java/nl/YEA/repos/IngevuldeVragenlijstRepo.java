@@ -12,16 +12,33 @@ import org.slf4j.*;
 public class IngevuldeVragenlijstRepo {
 
     private static Logger logger = LoggerFactory.getLogger(Slf4JLogger.class);
-
-    public void addAntwoord(IngevuldeVragenlijst iv, Antwoord antwoord) {
-        iv.getAntwoorden().add(antwoord);
-    }
-
-    private final EntityManager em;
-
-    public IngevuldeVragenlijstRepo(EntityManager em) {
+    private IngevuldeVragenlijst ingevuldeVragenlijst = new IngevuldeVragenlijst();
+    private EntityManager em;
+    public IngevuldeVragenlijstRepo(EntityManager em){
         this.em = em;
     }
+    public void addAntwoord( Antwoord antwoord) {
+        ingevuldeVragenlijst.getAntwoorden().add(antwoord);
+        antwoord.setLijst(ingevuldeVragenlijst);
+    }
+
+    public void clearIngevuldeVragenLijst(){
+        ingevuldeVragenlijst = new IngevuldeVragenlijst();
+    }
+
+    public void saveIngevuldeVragenlijst() {
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            em.persist(ingevuldeVragenlijst);
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            logger.error(e.getMessage(), e);
+        }
+    }
+
+
 
     public void save(IngevuldeVragenlijst ingevuldeVragenlijst) {
         EntityTransaction tx = em.getTransaction();

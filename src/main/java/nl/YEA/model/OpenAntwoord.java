@@ -6,8 +6,8 @@ import jakarta.persistence.Entity;
 public class OpenAntwoord extends Antwoord {
     private String antwoord;
 
-    public OpenAntwoord (IngevuldeVragenlijst IV, int vraagID, String text) {
-        super(IV, vraagID);
+    public OpenAntwoord(int vraagID, String text) {
+        super(vraagID);
         this.antwoord = text;
     }
 
