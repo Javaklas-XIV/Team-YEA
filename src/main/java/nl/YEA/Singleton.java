@@ -3,6 +3,8 @@ package nl.YEA;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import nl.YEA.controller.MeerkeuzeAntwoordController;
+import nl.YEA.controller.MeerkeuzeVraagController;
 import nl.YEA.controller.VraagController;
 import nl.YEA.model.Vraag;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
@@ -13,6 +15,8 @@ public class Singleton {
     private static Singleton singletonInstance;
     private List<Vraag> vragenlijst;
     private VraagController invulController;
+    private MeerkeuzeVraagController meerkeuzeVraagController;
+    private MeerkeuzeAntwoordController meerkeuzeAntwoordController;
     private IngevuldeVragenlijstRepo repo;
     private final EntityManagerFactory mySQL = Persistence.createEntityManagerFactory("MySQL");
     private EntityManager em = mySQL.createEntityManager();
@@ -21,6 +25,8 @@ public class Singleton {
         vragenlijst = new VragenlijstWerkEnGehoor().vragenlijstWerkEnGehoorSamenstellen();
         invulController = new VraagController();
         repo = new IngevuldeVragenlijstRepo(em);
+        meerkeuzeVraagController = new MeerkeuzeVraagController();
+        meerkeuzeAntwoordController = new MeerkeuzeAntwoordController();
     }
 
     public static Singleton getInstance() {
@@ -43,7 +49,7 @@ public class Singleton {
         return repo;
     }
 
-    public void setSingletonInstance(Singleton singletonInstance){
+    public static void setSingletonInstance(Singleton singletonInstance){
         Singleton.singletonInstance = singletonInstance;
     }
 
@@ -52,4 +58,11 @@ public class Singleton {
         mySQL.close();
     }
 
+    public MeerkeuzeVraagController getMeerkeuzeVraagController() {
+        return meerkeuzeVraagController;
+    }
+
+    public MeerkeuzeAntwoordController getMeerkeuzeAntwoordController() {
+        return meerkeuzeAntwoordController;
+    }
 }
