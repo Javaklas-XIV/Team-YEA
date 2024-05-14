@@ -15,9 +15,9 @@ public class InvulScherm implements Scherm{
         while (running){
             vraagNr = vraagController.vraagExists(nextVraagNr) ? nextVraagNr : -1;
             if (vraagNr != -1){
-                VraagInvulScherm invulScherm = InOutputUtil.getInstance().getVraagInvulScherm(nextVraagNr);
-                invulScherm.show();
-                nextVraagNr += invulScherm.getNavigationInput();
+                VraagInvulScherm vraagInvulScherm = InOutputUtil.getInstance().getVraagInvulScherm(nextVraagNr);
+                vraagInvulScherm.show();
+                nextVraagNr += vraagInvulScherm.getNavigationInput();
             }else{
                 running = false;
             }
