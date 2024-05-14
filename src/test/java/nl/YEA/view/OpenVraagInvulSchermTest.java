@@ -1,6 +1,7 @@
 package nl.YEA.view;
 
 import nl.YEA.controller.OpenAntwoordController;
+import nl.YEA.controller.OpenVraagController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,6 +21,8 @@ public class OpenVraagInvulSchermTest {
     private InOutputUtil inOutputUtilMock;
     @Mock
     private OpenAntwoordController openAntwoordControllerMock;
+    @Mock
+    private OpenVraagController openVraagControllerMock;
     @InjectMocks
     private OpenVraagInvulScherm sut = new OpenVraagInvulScherm(1);
 
@@ -31,7 +34,6 @@ public class OpenVraagInvulSchermTest {
     @Test
     void openAntwoordInvulSchermSucessvolOpslaan() {
         when(inOutputUtilMock.getNextLine()).thenReturn("Abc");
-        openAntwoordControllerMock.addAntwoord(anyInt(), anyString());
         sut.show();
         verify(inOutputUtilMock).print("""
 

@@ -1,5 +1,6 @@
 package nl.YEA.view;
 
+import com.mysql.cj.x.protobuf.MysqlxCursor;
 import nl.YEA.Singleton;
 import nl.YEA.controller.OpenAntwoordController;
 import nl.YEA.controller.OpenVraagController;
@@ -7,6 +8,8 @@ import nl.YEA.model.Vraag;
 
 public class OpenVraagInvulScherm extends VraagInvulScherm{
     private InOutputUtil inOutputUtil;
+    private OpenVraagController openVraagController;
+    private OpenAntwoordController openAntwoordController;
     public OpenVraagInvulScherm(int vraag) {
         super(vraag);
     }
