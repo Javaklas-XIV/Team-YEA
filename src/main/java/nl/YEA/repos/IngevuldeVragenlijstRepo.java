@@ -8,6 +8,9 @@ import nl.YEA.model.IngevuldeVragenlijst;
 import org.slf4j.LoggerFactory;
 import org.slf4j.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class IngevuldeVragenlijstRepo {
 
@@ -50,6 +53,14 @@ public class IngevuldeVragenlijstRepo {
             tx.rollback();
             logger.error(e.getMessage(), e);
         }
+    }
+
+    public void loadIngevuldeVragenlijst(){
+
+    }
+
+    public List<IngevuldeVragenlijst> getNonLoadedIngevuldeVragenlijsten(){
+        return List.of();
     }
 
     //Klopt voor nu even niet
