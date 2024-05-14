@@ -23,4 +23,8 @@ public class IngevuldeVragenlijst {
     public List<Antwoord> getAntwoorden() {
         return antwoorden;
     }
+
+    public int getId() {
+        return id;
+    }
 }
