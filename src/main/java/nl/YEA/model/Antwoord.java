@@ -11,11 +11,11 @@ import java.util.Objects;
 public abstract class Antwoord {
 
     @Id
-    protected int vraagID;
+    private int vraagID;
 
     @Id
     @ManyToOne
-    protected IngevuldeVragenlijst lijst;
+    private IngevuldeVragenlijst lijst;
 
     public Antwoord(int vraagid) {
         this.vraagID = vraagid;
