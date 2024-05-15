@@ -9,7 +9,14 @@ public class OpenVraag extends Vraag {
     }
 
     public OpenVraag(String beschrijving) {
-        this(beschrijving, Integer.MAX_VALUE);
+        this(beschrijving, 256);
     }
 
+    public int getMaxAantalTekens() {
+        return maxAantalTekens;
+    }
+
+    public void setMaxAantalTekens(int maxAantalTekens) {
+        this.maxAantalTekens = maxAantalTekens;
+    }
 }
