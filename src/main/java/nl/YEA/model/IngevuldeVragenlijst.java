@@ -10,6 +10,10 @@ import static jakarta.persistence.FetchType.EAGER;
 import static jakarta.persistence.FetchType.LAZY;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "getIngevuldeVragenlijsten", query = "SELECT i FROM IngevuldeVragenlijst i"),
+        @NamedQuery(name = "getIngevuldeVragenlijst", query = "SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id =:id")
+})
 public class IngevuldeVragenlijst {
 
     @Id
