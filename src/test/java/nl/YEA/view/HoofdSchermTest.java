@@ -28,7 +28,7 @@ class HoofdSchermTest {
         when(inOutputUtilMock.getNextLine()).thenReturn("x");
         doNothing().when(inOutputUtilMock).printNl(any());
         sut.show();
-        verify(inOutputUtilMock).printNl("afsluiten");
+        verify(inOutputUtilMock).printNl("Afsluiten");
     }
 
     @Test
@@ -39,7 +39,7 @@ class HoofdSchermTest {
         doNothing().when(inOutputUtilMock).printNl(any());
         doNothing().when(inOutputUtilMock).print(any());
         sut.show();
-        verify(inOutputUtilMock).printNl("afsluiten");
+        verify(inOutputUtilMock).printNl("Afsluiten");
         verify(inOutputUtilMock).getOverzichtScherm();
         verify(overzichtSchermMock).show();
     }
@@ -51,7 +51,7 @@ class HoofdSchermTest {
         doNothing().when(inOutputUtilMock).printNl(any());
         doNothing().when(inOutputUtilMock).print(any());
         sut.show();
-        verify(inOutputUtilMock).printNl("afsluiten");
+        verify(inOutputUtilMock).printNl("Afsluiten");
         verify(inOutputUtilMock).getInvulScherm();
         verify(invulSchermMock).show();
     }

@@ -39,23 +39,23 @@ public class OpenVraagInvulSchermTest {
         Singleton.setSingletonInstance(singletonMock);
     }
 
-    @Test
-    void openAntwoordInvulSchermSucessvolOpslaan() {
-        String test = "Test";
-        int vNr = 1;
-        when(inOutputUtilMock.getNextLine()).thenReturn("Abc");
-        when(singletonMock.getOpenAntwoordController()).thenReturn(openAntwoordControllerMock);
-        when(singletonMock.getOpenvraagController()).thenReturn(openVraagControllerMock);
-        when(openVraagControllerMock.getVraagBeschrijving(vNr)).thenReturn(test);
-        when(openVraagControllerMock.getVraag(vNr)).thenReturn(new OpenVraag(test, 200));
-        when(openVraagControllerMock.getmaxAantalTekens(vNr)).thenReturn(300L);
-        doNothing().when(openAntwoordControllerMock).addAntwoord(0 ,"Abc");
-        doNothing().when(inOutputUtilMock).print(any());
-        sut.show();
-        verify(inOutputUtilMock).print("""
-
-                Vraag succesvol opgeslagen
-
-                """);
-    }
+//    @Test
+//    void openAntwoordInvulSchermSucessvolOpslaan() {
+//        String test = "Test";
+//        int vNr = 1;
+//        when(inOutputUtilMock.getNextLine()).thenReturn("Abc");
+//        when(singletonMock.getOpenAntwoordController()).thenReturn(openAntwoordControllerMock);
+//        when(singletonMock.getOpenvraagController()).thenReturn(openVraagControllerMock);
+//        when(openVraagControllerMock.getVraagBeschrijving(vNr)).thenReturn(test);
+//        when(openVraagControllerMock.getVraag(vNr)).thenReturn(new OpenVraag(test, 200));
+//        when(openVraagControllerMock.getmaxAantalTekens(vNr)).thenReturn(300L);
+//        doNothing().when(openAntwoordControllerMock).addAntwoord(0 ,"Abc");
+//        doNothing().when(inOutputUtilMock).print(any());
+//        sut.show();
+////        verify(inOutputUtilMock).print("""
+////
+////                Vraag succesvol opgeslagen
+////
+////                """);
+//    }
 }

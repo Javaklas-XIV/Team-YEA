@@ -44,8 +44,8 @@ class NumeriekeVraagInvulSchermTest {
 
         sut.show();
 
-        verify(inOutputUtilMock).printNl("Geen geldige input");
-        verify(inOutputUtilMock).printNl("Ongeldig getal");
+        verify(inOutputUtilMock).printNl("Geen geldige input, probeer opnieuw:");
+        verify(inOutputUtilMock).printNl("Ongeldig getal, probeer opnieuw:");
         verify(naControllerMock).addAntwoord(1, 2);
     }
 }
