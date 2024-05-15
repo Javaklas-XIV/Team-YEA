@@ -68,7 +68,7 @@ public class IngevuldeVragenlijstRepo {
         try {
             tx.begin();
             result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id ="
-                            +ingevuldeVragenlijst.getId()+"", IngevuldeVragenlijst.class)
+                            +ingevuldeVragenlijst.getId(), IngevuldeVragenlijst.class)
                     .getSingleResult();
             tx.commit();
         } catch (Exception e) {
