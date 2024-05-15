@@ -14,7 +14,7 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
 
     @Override
     public void show() {
-        InOutputUtil.getInstance().printNl("Open-Vraag");
+//        InOutputUtil.getInstance().printNl("Open-Vraag");
         InOutputUtil inOutputUtil = InOutputUtil.getInstance();
         Singleton singleton = Singleton.getInstance();
 
@@ -27,23 +27,14 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
 
         while (running) {
             inOutputUtil = InOutputUtil.getInstance();
-            inOutputUtil.print("\n"+"Vraag "+vraagnummer+":\n"+ "\n" + beschrijving);
+            inOutputUtil.printNl(beschrijving);
             String input = inOutputUtil.getNextLine();
             long max = openVraagController.getmaxAantalTekens(vraagNr);
             if (input.length() < max && !input.isEmpty()) {
                 openAntwoordController.addAntwoord(vraagnummer, input);
                 running = false;
-                inOutputUtil.print("""
-
-                        Vraag succesvol opgeslagen
-
-                        """);
             } else {
-                inOutputUtil.print("""
-
-                        Niks ingevuld/Te lang antwoord, probeer opnieuw
-                        
-                        """);
+                inOutputUtil.printNl("Niks ingevuld/Te lang antwoord, probeer opnieuw:");
             }
         }
     }

@@ -14,7 +14,6 @@ public class OpenAntwoordInzienScherm extends AntwoordInzienScherm{
     public void show() {
         InOutputUtil io = InOutputUtil.getInstance();
         Singleton singleton = Singleton.getInstance();
-        io.printNl(" ");
         OpenAntwoordController openAntwoordController = singleton.getOpenAntwoordController();
         OpenVraagController openVraagController = singleton.getOpenvraagController();
         String beschrijving = openVraagController.getVraagBeschrijving(vraagNr);
@@ -22,9 +21,8 @@ public class OpenAntwoordInzienScherm extends AntwoordInzienScherm{
         if(isHeeftAntwoord()){
             OpenAntwoord antwoord = openAntwoordController.getAntwoord(vraagNr);
             io.printNl(antwoord.getAntwoord());
-            io.printNl(" ");
         } else {
-            io.printNl(" ");
+            io.printNl("");
         }
     }
 }

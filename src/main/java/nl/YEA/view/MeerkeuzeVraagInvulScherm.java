@@ -26,23 +26,24 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         while (running){
             io.printNl(vraagbeschrijving);
             if (gekozenAntwoorden.size()>0) {
-                io.print("reeds gekozen antwoorden:\n");
+                io.print("Reeds gekozen antwoorden:\n");
                 for (String keuze : gekozenAntwoorden){
                     io.print(keuze+"\n");
                 }
             }
-            io.print("min: "+min+"  max: "+max+"\n");
-            io.print("maak uw keuze:\n");
+            if (min != 1 || max != 1) {
+                io.printNl("(Kies minimaal "+min+" en maximaal "+max+" opties)");
+            }
             List<String> nogKiesbaareAntworden = new ArrayList<>(mogelijkeAntwoorden);
             nogKiesbaareAntworden.removeAll(gekozenAntwoorden);
             printAntwoordKeuzes(io, nogKiesbaareAntworden);
             int i = nogKiesbaareAntworden.size()+1;
             if (gekozenAntwoorden.size()>0) {
-                io.print("[" + i + "] : wis antwoorden\n");
+                io.print("[" + i + "] : Wis antwoorden\n");
                 i++;
             }
             if (gekozenAntwoorden.size()>=min){
-                io.print("[" + i + "] : akkoord\n");
+                io.print("[" + i + "] : Akkoord\n");
             }
             running = listenforKeuze(io,nogKiesbaareAntworden, gekozenAntwoorden, min,max);
         }
@@ -70,7 +71,7 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         try {
             keuze = Integer.parseInt(input);
         }catch (NumberFormatException e){
-            io.print("geen nummer probeer opniew:\n");
+            io.print("Geen nummer, probeer opnieuw:\n");
             return true;
         }
         int clearNr = alGekozen.size()>0?hedenMogelijkeKeuzes.size()+1:-1;
@@ -88,7 +89,7 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         }else if (keuze == accept&&accept!=-1){
             return false;
         }else{
-            io.print("ongeldige keuze probeer opniew: \n");
+            io.print("Ongeldige keuze, probeer opnieuw: \n");
             return true;
         }
     }
