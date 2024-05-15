@@ -19,9 +19,11 @@ public class HoofdScherm implements Scherm{
             switch (inOutputUtil.getNextLine()){
                 case "1":
                     inOutputUtil.getInvulScherm().show();
+                    inOutputUtil.printNl("");
                     break;
                 case "2":
                     inOutputUtil.getOverzichtScherm().show();
+                    inOutputUtil.getNextLine();
                     break;
                 case "x":
                     inOutputUtil.printNl("Afsluiten");

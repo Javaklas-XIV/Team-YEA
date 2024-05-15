@@ -8,6 +8,7 @@ public class InzienScherm implements Scherm{
     Singleton singleton = Singleton.getInstance();
     @Override
     public void show() {
+        InOutputUtil inOutputUtil = InOutputUtil.getInstance();
         VraagController vraagController = singleton.getInvulController();
         boolean running = true;
         int vraagNr;
@@ -18,6 +19,7 @@ public class InzienScherm implements Scherm{
                 AntwoordInzienScherm antwoordInzienScherm = InOutputUtil.getInstance().getAntwoordInzienScherm(nextVraagNr);
                 antwoordInzienScherm.setHeeftAntwoord(singleton.getRepo().ingevuldeVragenlijstContains(vraagNr));
                 antwoordInzienScherm.show();
+                inOutputUtil.printNl("");
                 nextVraagNr++;
             }else{
                 running = false;

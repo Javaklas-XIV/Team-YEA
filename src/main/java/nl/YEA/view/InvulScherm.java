@@ -7,6 +7,7 @@ public class InvulScherm implements Scherm{
     Singleton singleton = Singleton.getInstance();
     @Override
     public void show() {
+        InOutputUtil inOutputUtil = InOutputUtil.getInstance();
         singleton.getRepo().clearIngevuldeVragenLijst();
         VraagController vraagController = singleton.getInvulController();
         boolean running = true;
@@ -17,6 +18,7 @@ public class InvulScherm implements Scherm{
             if (vraagNr != -1){
                 VraagInvulScherm vraagInvulScherm = InOutputUtil.getInstance().getVraagInvulScherm(nextVraagNr);
                 vraagInvulScherm.show();
+                inOutputUtil.printNl("");
                 nextVraagNr += vraagInvulScherm.getNavigationInput();
             }else{
                 running = false;

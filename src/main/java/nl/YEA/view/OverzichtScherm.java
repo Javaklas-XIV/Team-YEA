@@ -12,14 +12,14 @@ public class OverzichtScherm implements Scherm{
         Singleton singleton = Singleton.getInstance();
         boolean running = true;
         while (running){
-            io.print("maak u keuzen: \n");
+            io.printNl("Welke ingevulde vragenlijst wilt u inzien?");
             int i =1;
             List<IngevuldeVragenlijst> ingevuldeVragenlijsten = singleton.getRepo().getNonLoadedIngevuldeVragenlijsten();
             for (IngevuldeVragenlijst ingevuldeVragenlijst:ingevuldeVragenlijsten){
                 io.print("["+i+"] ingevulde vragenlijst: "+ingevuldeVragenlijst.getId()+"\n");
                 i++;
             }
-            io.print("[b] terug.\n");
+            io.printNl("[b] Terug.");
             running=listenForInput(io, singleton, ingevuldeVragenlijsten);
         }
     }
@@ -41,7 +41,7 @@ public class OverzichtScherm implements Scherm{
             return true;
         }
         else{
-            io.print("niet geldige invoer.\n");
+            io.printNl("Geen geldige invoer.");
             return true;
         }
     }
