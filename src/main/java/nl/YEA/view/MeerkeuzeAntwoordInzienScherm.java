@@ -4,7 +4,6 @@ import nl.YEA.Singleton;
 import nl.YEA.controller.MeerkeuzeAntwoordController;
 import nl.YEA.controller.MeerkeuzeVraagController;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
