@@ -7,9 +7,7 @@ import nl.YEA.controller.OpenVraagController;
 import nl.YEA.model.Vraag;
 
 public class OpenVraagInvulScherm extends VraagInvulScherm{
-    private InOutputUtil inOutputUtil;
-    private OpenVraagController openVraagController;
-    private OpenAntwoordController openAntwoordController;
+
     public OpenVraagInvulScherm(int vraag) {
         super(vraag);
     }
@@ -17,21 +15,23 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
     @Override
     public void show() {
         InOutputUtil.getInstance().printNl("Open-Vraag");
-        OpenVraagController openVraagController = new OpenVraagController();
-        OpenAntwoordController openAntwoordController = new OpenAntwoordController();
+        InOutputUtil inOutputUtil = InOutputUtil.getInstance();
+        Singleton singleton = Singleton.getInstance();
+
+        OpenVraagController openVraagController = singleton.getOpenvraagController();
+        OpenAntwoordController openAntwoordController = singleton.getOpenAntwoordController();
         String beschrijving = openVraagController.getVraagBeschrijving(super.vraagNr);
-        Vraag vraag = openVraagController.getVraag(super.vraagNr);
-        int nummer = vraag.getVraagnummer();
+        int vraagnummer = openVraagController.getVraag(super.vraagNr).getVraagnummer();
         boolean running = true;
 
 
         while (running) {
             inOutputUtil = InOutputUtil.getInstance();
-            inOutputUtil.print("\n"+"Vraag "+nummer+":\n"+ "\n" + beschrijving);
+            inOutputUtil.print("\n"+"Vraag "+vraagnummer+":\n"+ "\n" + beschrijving);
             String input = inOutputUtil.getNextLine();
             long max = openVraagController.getmaxAantalTekens(vraagNr);
             if (input.length() < max && !input.isEmpty()) {
-                openAntwoordController.addAntwoord(nummer, input);
+                openAntwoordController.addAntwoord(vraagnummer, input);
                 running = false;
                 inOutputUtil.print("""
 
