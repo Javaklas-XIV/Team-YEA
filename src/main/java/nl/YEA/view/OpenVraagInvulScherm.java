@@ -23,11 +23,11 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
         String beschrijving = openVraagController.getVraagBeschrijving(super.vraagNr);
         int vraagnummer = openVraagController.getVraag(super.vraagNr).getVraagnummer();
         boolean running = true;
-
-
+        inOutputUtil.print(beschrijving+"\n");
+        if (openVraagController.getVraag(vraagNr).isOptioneel()){
+            inOutputUtil.handleOptioneel();
+        }
         while (running) {
-            inOutputUtil = InOutputUtil.getInstance();
-            inOutputUtil.print("\n"+"Vraag "+vraagnummer+":\n"+ "\n" + beschrijving);
             String input = inOutputUtil.getNextLine();
             long max = openVraagController.getmaxAantalTekens(vraagNr);
             if (input.length() < max && !input.isEmpty()) {

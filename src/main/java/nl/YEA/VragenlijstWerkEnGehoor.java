@@ -1,6 +1,8 @@
 package nl.YEA;
 
+import nl.YEA.controller.AntwoordController;
 import nl.YEA.model.*;
+import nl.YEA.view.VraagInvulScherm;
 
 import java.util.List;
 import java.util.Map;
@@ -164,7 +166,7 @@ public class VragenlijstWerkEnGehoor {
             "voren zijn gekomen, maar die u ons toch wilt meegeven:";
 
 
-    public List<Vraag> vragenlijstWerkEnGehoorSamenstellen() {
+    public List<FormulierObject> vragenlijstWerkEnGehoorSamenstellen() {
         List<String> optiesNeeJa = List.of("nee", "ja");
         List<String> optiesFrequentie = List.of("bijna nooit", "soms", "vaak", "bijna altijd");
         List<String> optiesHoeveelheid = List.of("nee", "een beetje", "veel", "zeer veel");
@@ -173,7 +175,7 @@ public class VragenlijstWerkEnGehoor {
                 "nee", null,
                 "ja", List.of(new OpenVraag("namelijk?")));*/
 
-        List<Vraag> vlWerkEnGehoor = List.of(
+        List<FormulierObject> vlWerkEnGehoor = List.of(
                 /* Deel 1 Persoonlijke informatie */
                 new OpenVraag(naam),
                 new MeerkeuzeVraag(geslacht, List.of("V", "M")),
@@ -187,7 +189,7 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(opleiding, List.of(oLagerOnderwijs, oLagerBeroepsonderwijs,
                         oMiddelbaarAlgemeenOnderwijs, oMiddelbaarBeroepsonderwijs, oVoortgezetAlgemeen, oHogerBeroepsonderwijs,
                         oHogerAlgemeenEnWetenschappelijkOnderwijs)),
-                //new ComplexeVraag(hobby, optiesNeeJaNamelijk),
+                new MeerkeuzeVraag(hobby,optiesNeeJa,1,1,Map.of(1,new OpenVraag("namenlijk?"))),
 
 
                 /* Deel 2 Algemene werkinformatie */
@@ -284,19 +286,40 @@ public class VragenlijstWerkEnGehoor {
     }
 
 
-    private void voegNummeringToe(List<Vraag> vragenlijst) {
+    private void voegNummeringToe(List<FormulierObject> vragenlijst) {
         int i = 1;
-        for (Vraag v : vragenlijst) {
-            v.setVraagnummer(i++);
-            if (v instanceof ComplexeVraag) {
-                for (Map.Entry<String, List<Vraag>> e : ((ComplexeVraag) v).getKeuzemogelijkheden().entrySet()) {
-                    if (e.getValue() != null) {
-                        for (Vraag w : e.getValue()) {
-                            w.setVraagnummer(i++);
-                        }
-                    }
-                }
+        for (FormulierObject o : vragenlijst) {
+            i=nummeringFormulierObject(i,o);
+        }
+    }
+
+    private int nummeringFormulierObject(int i,FormulierObject object){
+        if (object instanceof FormulierOnderdeel){
+            i=nummeringFormulierOnderdeel(i,(FormulierOnderdeel) object);
+        }else if (object instanceof MeerkeuzeVraag||object instanceof OpenVraag||object instanceof NumeriekeVraag){
+            i=nummeringVraag(i,(Vraag) object);
+        }else{
+            throw new RuntimeException("formobject not handled in invul scherm");
+        }
+        return i;
+    }
+
+    private int nummeringFormulierOnderdeel(int i,FormulierOnderdeel onderdeel){
+        for (FormulierObject object:onderdeel.getOnderdeelen()){
+            i = nummeringFormulierObject(i,object);
+        }
+        return i;
+    }
+
+    private int nummeringVraag(int i,Vraag vraag){
+        vraag.setVraagnummer(i++);
+        int vraagNr = vraag.getVraagnummer();
+        AntwoordController antwoordController = Singleton.getInstance().getMeerkeuzeAntwoordController();
+        if(antwoordController.antwoordExists(vraag.getVraagnummer())){
+            for (FormulierObject object:vraag.getLinksByAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))){
+                i=nummeringFormulierObject(i,object);
             }
         }
+        return i;
     }
 }

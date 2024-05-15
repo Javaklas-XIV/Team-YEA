@@ -1,17 +1,25 @@
 package nl.YEA.model;
 
-public abstract class Vraag {
+import java.util.List;
+
+public abstract class Vraag extends FormulierObject{
     private int vraagnummer;
-    private String beschrijving;
-    private boolean optioneel;
+    private FormulierObject anyAwnserLink = null;
 
+    public abstract List<FormulierObject> getLinksByAntwoord(Antwoord antwoord);
     public Vraag(String beschrijving) {
-        this.beschrijving = beschrijving;
+        super(beschrijving);
     }
 
-    public String getBeschrijving() {
-        return beschrijving;
+    public FormulierObject getAnyAwnserLink() {
+        return anyAwnserLink;
     }
+
+    public void setAnyAwnserLink(FormulierObject anyAwnserLink) {
+        this.anyAwnserLink = anyAwnserLink;
+    }
+
+    public abstract List<FormulierObject> getAllAntwoordLinks();
 
     public void setVraagnummer(int vraagnummer) {
         this.vraagnummer = vraagnummer;
@@ -19,10 +27,5 @@ public abstract class Vraag {
 
     public int getVraagnummer() {
         return vraagnummer;
-    }
-
-    @Override
-    public String toString() {
-        return beschrijving;
     }
 }

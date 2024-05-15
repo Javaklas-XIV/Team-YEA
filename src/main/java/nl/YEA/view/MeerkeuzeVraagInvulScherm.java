@@ -6,7 +6,7 @@ import nl.YEA.controller.MeerkeuzeVraagController;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
+public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm {
 
     public MeerkeuzeVraagInvulScherm(int vraag) {
         super(vraag);
@@ -23,74 +23,76 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm{
         int max = meerkeuzeVraagController.getMaxKeuzes(vraagNr);
         int min = meerkeuzeVraagController.getMinKeuzes(vraagNr);
         boolean running = true;
-        while (running){
-            io.printNl(vraagbeschrijving);
-            if (gekozenAntwoorden.size()>0) {
+        io.printNl(vraagbeschrijving);
+        if (meerkeuzeVraagController.getVraag(vraagNr).isOptioneel()){
+            io.handleOptioneel();
+        }
+        while (running) {
+            if (!gekozenAntwoorden.isEmpty()) {
                 io.print("reeds gekozen antwoorden:\n");
-                for (String keuze : gekozenAntwoorden){
-                    io.print(keuze+"\n");
+                for (String keuze : gekozenAntwoorden) {
+                    io.print(keuze + "\n");
                 }
             }
-            io.print("min: "+min+"  max: "+max+"\n");
+            io.print("min: " + min + "  max: " + max + "\n");
             io.print("maak uw keuze:\n");
             List<String> nogKiesbaareAntworden = new ArrayList<>(mogelijkeAntwoorden);
             nogKiesbaareAntworden.removeAll(gekozenAntwoorden);
             printAntwoordKeuzes(io, nogKiesbaareAntworden);
-            int i = nogKiesbaareAntworden.size()+1;
-            if (gekozenAntwoorden.size()>0) {
+            int i = nogKiesbaareAntworden.size() + 1;
+            if (!gekozenAntwoorden.isEmpty()) {
                 io.print("[" + i + "] : wis antwoorden\n");
                 i++;
             }
-            if (gekozenAntwoorden.size()>=min){
+            if (gekozenAntwoorden.size() >= min) {
                 io.print("[" + i + "] : akkoord\n");
             }
-            running = listenforKeuze(io,nogKiesbaareAntworden, gekozenAntwoorden, min,max);
+            running = listenforKeuze(io, nogKiesbaareAntworden, gekozenAntwoorden, min, max);
         }
         int[] antwoordIndexes = new int[gekozenAntwoorden.size()];
-        for (int i = 0 ;i<antwoordIndexes.length;i++){
-            antwoordIndexes[i]= mogelijkeAntwoorden.indexOf(gekozenAntwoorden.get(i));
+        for (int i = 0; i < antwoordIndexes.length; i++) {
+            antwoordIndexes[i] = mogelijkeAntwoorden.indexOf(gekozenAntwoorden.get(i));
         }
-        singleton.getMeerkeuzeAntwoordController().addToList(vraagNr,antwoordIndexes);
+        singleton.getMeerkeuzeAntwoordController().addToList(vraagNr, antwoordIndexes);
 
     }
 
-    private List<String> printAntwoordKeuzes(InOutputUtil io, List<String> hedenMogelijkeAntworden){
+    private void printAntwoordKeuzes(InOutputUtil io, List<String> hedenMogelijkeAntworden) {
         int i = 1;
-        for (String keuze:hedenMogelijkeAntworden){
-            io.print("["+i+"] : "+keuze+"\n");
+        for (String keuze : hedenMogelijkeAntworden) {
+            io.print("[" + i + "] : " + keuze + "\n");
             i++;
         }
-        return hedenMogelijkeAntworden;
     }
 
     private boolean listenforKeuze(InOutputUtil io, List<String> hedenMogelijkeKeuzes, List<String> alGekozen,
-                                   int min, int max){
+                                   int min, int max) {
         String input = io.getNextLine();
         int keuze = 0;
         try {
             keuze = Integer.parseInt(input);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             io.print("geen nummer probeer opniew:\n");
             return true;
         }
-        int clearNr = alGekozen.size()>0?hedenMogelijkeKeuzes.size()+1:-1;
-        int accept = (alGekozen.size()>=min?hedenMogelijkeKeuzes.size()+(clearNr!=-1?2:1):-1);
-        if (keuze<=hedenMogelijkeKeuzes.size()&&keuze>0){
-            alGekozen.add(hedenMogelijkeKeuzes.get(keuze-1));
-            if (alGekozen.size()>=max){
+        int clearNr = !alGekozen.isEmpty() ? hedenMogelijkeKeuzes.size() + 1 : -1;
+        int accept = (alGekozen.size() >= min ? hedenMogelijkeKeuzes.size() + (clearNr != -1 ? 2 : 1) : -1);
+        if (keuze <= hedenMogelijkeKeuzes.size() && keuze > 0) {
+            alGekozen.add(hedenMogelijkeKeuzes.get(keuze - 1));
+            if (alGekozen.size() >= max) {
                 return false;
-            }else{
+            } else {
                 return true;
             }
-        }else if (keuze == clearNr&&clearNr!=-1){
+        } else if (keuze == clearNr && clearNr != -1) {
             alGekozen.clear();
             return true;
-        }else if (keuze == accept&&accept!=-1){
+        } else if (keuze == accept && accept != -1) {
             return false;
-        }else{
+        } else {
             io.print("ongeldige keuze probeer opniew: \n");
             return true;
         }
     }
-    
+
 }
