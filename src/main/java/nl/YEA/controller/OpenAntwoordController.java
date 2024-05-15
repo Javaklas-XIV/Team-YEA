@@ -6,6 +6,7 @@ import nl.YEA.model.OpenAntwoord;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
 public class OpenAntwoordController extends AntwoordController{
+    public OpenAntwoordController() {}
 
     public boolean antwoordGoedgekeurd(int vraagNr, String text){
         long nummer = new OpenVraagController().getmaxAantalTekens(vraagNr);

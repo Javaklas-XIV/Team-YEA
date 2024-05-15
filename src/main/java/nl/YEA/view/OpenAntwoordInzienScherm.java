@@ -3,7 +3,6 @@ package nl.YEA.view;
 import nl.YEA.Singleton;
 import nl.YEA.controller.OpenAntwoordController;
 import nl.YEA.controller.OpenVraagController;
-import nl.YEA.model.Antwoord;
 import nl.YEA.model.OpenAntwoord;
 
 public class OpenAntwoordInzienScherm extends AntwoordInzienScherm{
@@ -18,10 +17,14 @@ public class OpenAntwoordInzienScherm extends AntwoordInzienScherm{
         io.printNl(" ");
         OpenAntwoordController openAntwoordController = singleton.getOpenAntwoordController();
         OpenVraagController openVraagController = singleton.getOpenvraagController();
-        OpenAntwoord antwoord = openAntwoordController.getAntwoord(vraagNr);
         String beschrijving = openVraagController.getVraagBeschrijving(vraagNr);
         io.printNl(beschrijving);
-        io.printNl(antwoord.getAntwoord());
-        io.printNl(" ");
+        if(isHeeftAntwoord()){
+            OpenAntwoord antwoord = openAntwoordController.getAntwoord(vraagNr);
+            io.printNl(antwoord.getAntwoord());
+            io.printNl(" ");
+        } else {
+            io.printNl(" ");
+        }
     }
 }

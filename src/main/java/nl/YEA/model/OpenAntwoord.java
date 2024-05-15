@@ -18,4 +18,7 @@ public class OpenAntwoord extends Antwoord {
     public String getAntwoord() {
         return antwoord;
     }
+    public void setAntwoord(String antwoord) {
+        this.antwoord = antwoord;
+    }
 }
