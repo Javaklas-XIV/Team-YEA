@@ -81,4 +81,18 @@ public class InOutputUtil {
         }
         return invulScherm;
     }
+    public AntwoordInzienScherm getAntwoordInzienScherm(int vraagNr){
+        AntwoordInzienScherm inzienScherm;
+        Vraag vraag = vraagController.getVraag(vraagNr);
+        if (vraag instanceof MeerkeuzeVraag){
+            inzienScherm = new MeerkeuzeAntwoordInzienScherm(vraagNr);
+        }else if (vraag instanceof NumeriekeVraag){
+            inzienScherm = new NumeriekeAntwoordInzienScherm(vraagNr);
+        }else if (vraag instanceof OpenVraag){
+            inzienScherm = new OpenAntwoordInzienScherm(vraagNr);
+        }else{
+            throw new RuntimeException("vraag type not handeled by in out Controller");
+        }
+        return inzienScherm;
+    }
 }

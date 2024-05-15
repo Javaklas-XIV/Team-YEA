@@ -10,7 +10,7 @@ public class InvulScherm implements Scherm{
         singleton.getRepo().clearIngevuldeVragenLijst();
         VraagController vraagController = singleton.getInvulController();
         boolean running = true;
-        int vraagNr = -1;
+        int vraagNr;
         int nextVraagNr = 1;
         while (running){
             vraagNr = vraagController.vraagExists(nextVraagNr) ? nextVraagNr : -1;

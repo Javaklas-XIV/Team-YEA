@@ -8,6 +8,9 @@ import nl.YEA.model.IngevuldeVragenlijst;
 import org.slf4j.LoggerFactory;
 import org.slf4j.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class IngevuldeVragenlijstRepo {
 
@@ -20,6 +23,13 @@ public class IngevuldeVragenlijstRepo {
     public void addAntwoord( Antwoord antwoord) {
         ingevuldeVragenlijst.getAntwoorden().add(antwoord);
         antwoord.setLijst(ingevuldeVragenlijst);
+    }
+
+    public boolean ingevuldeVragenlijstContains(int vraagNr){
+        return ingevuldeVragenlijst.containsAntwoord(vraagNr);
+    }
+    public Antwoord ingevuldeVragenlijstGetAntwoord(int vraagNr){
+        return ingevuldeVragenlijst.getAntwoord(vraagNr);
     }
 
     public void clearIngevuldeVragenLijst(){
@@ -50,6 +60,38 @@ public class IngevuldeVragenlijstRepo {
             tx.rollback();
             logger.error(e.getMessage(), e);
         }
+    }
+
+    public void loadIngevuldeVragenlijst(IngevuldeVragenlijst ingevuldeVragenlijst){
+        IngevuldeVragenlijst result = null;
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id ="
+                            +ingevuldeVragenlijst.getId(), IngevuldeVragenlijst.class)
+                    .getSingleResult();
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            logger.error(e.getMessage(), e);
+        }
+        this.ingevuldeVragenlijst = result;
+    }
+
+    public List<IngevuldeVragenlijst> getNonLoadedIngevuldeVragenlijsten(){
+        List<IngevuldeVragenlijst> result = null;
+        EntityTransaction tx = em.getTransaction();
+        try {
+            tx.begin();
+            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i", IngevuldeVragenlijst.class)
+                    .getResultList();
+            tx.commit();
+        } catch (Exception e) {
+            tx.rollback();
+            logger.error(e.getMessage(), e);
+        }
+        return result;
+        //return List.of(new IngevuldeVragenlijst());
     }
 
     //Klopt voor nu even niet

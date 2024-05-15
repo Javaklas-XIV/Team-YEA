@@ -7,6 +7,8 @@ import nl.YEA.exceptions.ToManyAntwoordenException;
 import nl.YEA.model.MeerkeuzeAntwoord;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
+import java.util.List;
+
 public class MeerkeuzeAntwoordController extends AntwoordController{
 
     public void addToList(int vraagId, int[] antwoord){
@@ -24,5 +26,10 @@ public class MeerkeuzeAntwoordController extends AntwoordController{
             }
         }
         repo.addAntwoord(new MeerkeuzeAntwoord(vraagId,antwoord));
+    }
+
+    public List<Integer> getAntwoord(int vraagNr){
+        IngevuldeVragenlijstRepo repo = Singleton.getInstance().getRepo();
+        return ((MeerkeuzeAntwoord)repo.ingevuldeVragenlijstGetAntwoord(vraagNr)).getAntwoord();
     }
 }
