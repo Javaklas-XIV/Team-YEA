@@ -3,6 +3,7 @@ package nl.YEA.repos;
 import com.mysql.cj.log.Slf4JLogger;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.NamedQuery;
 import nl.YEA.model.Antwoord;
 import nl.YEA.model.IngevuldeVragenlijst;
 import org.slf4j.LoggerFactory;
@@ -67,9 +68,10 @@ public class IngevuldeVragenlijstRepo {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id ="
+            result = em.createNamedQuery("getIngevuldeVragenlijst", IngevuldeVragenlijst.class ).setParameter("id",ingevuldeVragenlijst.getId() ).getSingleResult();
+            /*result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i join fetch i.antwoorden WHERE i.id ="
                             +ingevuldeVragenlijst.getId(), IngevuldeVragenlijst.class)
-                    .getSingleResult();
+                    .getSingleResult();*/
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
@@ -83,8 +85,8 @@ public class IngevuldeVragenlijstRepo {
         EntityTransaction tx = em.getTransaction();
         try {
             tx.begin();
-            result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i", IngevuldeVragenlijst.class)
-                    .getResultList();
+            result = em.createNamedQuery("getIngevuldeVragenlijsten", IngevuldeVragenlijst.class ).getResultList();
+            //result = em.createQuery("SELECT i FROM IngevuldeVragenlijst i", IngevuldeVragenlijst.class).getResultList();
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
