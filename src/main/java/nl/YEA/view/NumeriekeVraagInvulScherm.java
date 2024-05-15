@@ -27,7 +27,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
                 geldigAntwoord = true;
                 naController.addAntwoord(vraagNr, antwoord);
             } else {
-                inOutputUtil.printNl("Ongeldig getal");
+                inOutputUtil.printNl("Ongeldig getal, probeer opnieuw:");
                 antwoord = getNumeriekeInput();
             }
         }
@@ -42,7 +42,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
                 antwoord = Integer.parseInt(strAntwoord);
                 isGetal = true;
             } catch (NumberFormatException e) {
-                inOutputUtil.printNl("Geen geldige input");
+                inOutputUtil.printNl("Geen geldige input, probeer opnieuw:");
                 strAntwoord = inOutputUtil.getNextLine();
             }
         }
