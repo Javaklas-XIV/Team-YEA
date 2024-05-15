@@ -6,9 +6,9 @@ import nl.YEA.model.OpenAntwoord;
 
 public class OpenAntwoordController extends AntwoordController{
 
-    public boolean antwoordGoedgekeurd(int vraagNr){
+    public boolean antwoordGoedgekeurd(int vraagNr, String text){
         long nummer = new OpenVraagController().getmaxAantalTekens(vraagNr);
-        return nummer > 0 && nummer < 257;
+        return text.length() <= nummer && !text.isEmpty();
     }
 
     public void addAntwoord(int vraagNr, String antwoord){
