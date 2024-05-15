@@ -9,4 +9,12 @@ public class NumeriekeVraag extends Vraag {
         this.minimum = minimum;
         this.maximum = maximum;
     }
+
+    public int getMinimum() {
+        return minimum;
+    }
+
+    public int getMaximum() {
+        return maximum;
+    }
 }

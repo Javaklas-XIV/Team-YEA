@@ -2,6 +2,8 @@ package nl.YEA.model;
 
 import jakarta.persistence.Entity;
 
+import java.util.Objects;
+
 
 @Entity
 public class NumeriekAntwoord extends Antwoord {
@@ -14,5 +16,9 @@ public class NumeriekAntwoord extends Antwoord {
 
     public NumeriekAntwoord() {
 
+    }
+
+    public void setAntwoord(int antwoord) {
+        this.antwoord = antwoord;
     }
 }

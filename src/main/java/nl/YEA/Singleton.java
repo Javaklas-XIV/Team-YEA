@@ -3,6 +3,8 @@ package nl.YEA;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import nl.YEA.controller.NumeriekAntwoordController;
+import nl.YEA.controller.NumeriekeVraagController;
 import nl.YEA.controller.OpenAntwoordController;
 import nl.YEA.controller.OpenVraagController;
 
@@ -20,6 +22,8 @@ public class Singleton {
     private static Singleton singletonInstance;
     private List<Vraag> vragenlijst;
     private VraagController invulController;
+    private NumeriekeVraagController numeriekeVraagController;
+    private NumeriekAntwoordController numeriekAntwoordController;
 
     private OpenAntwoordController openAntwoordController;
     private OpenVraagController openvraagController;;
@@ -36,6 +40,8 @@ public class Singleton {
         vragenlijst = new VragenlijstWerkEnGehoor().vragenlijstWerkEnGehoorSamenstellen();
         invulController = new VraagController();
         repo = new IngevuldeVragenlijstRepo(em);
+        numeriekeVraagController = new NumeriekeVraagController();
+        numeriekAntwoordController = new NumeriekAntwoordController();
 
         openAntwoordController = new OpenAntwoordController();
         openvraagController = new OpenVraagController();
@@ -43,7 +49,6 @@ public class Singleton {
         meerkeuzeVraagController = new MeerkeuzeVraagController();
         meerkeuzeAntwoordController = new MeerkeuzeAntwoordController();
         antwoordController = new AntwoordController();
-
     }
 
     public static Singleton getInstance() {
@@ -68,6 +73,14 @@ public class Singleton {
 
     public IngevuldeVragenlijstRepo getRepo() {
         return repo;
+    }
+
+    public NumeriekeVraagController getNumeriekeVraagController() {
+        return numeriekeVraagController;
+    }
+
+    public NumeriekAntwoordController getNumeriekAntwoordController() {
+        return numeriekAntwoordController;
     }
 
     public static void setSingletonInstance(Singleton singletonInstance){
