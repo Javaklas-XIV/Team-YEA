@@ -25,4 +25,8 @@ public abstract class Antwoord {
     }
     public Antwoord() {
     }
+
+    public int getVraagID() {
+        return vraagID;
+    }
 }
