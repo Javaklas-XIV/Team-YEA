@@ -3,6 +3,7 @@ package nl.YEA.view;
 import nl.YEA.Singleton;
 import nl.YEA.controller.NumeriekAntwoordController;
 import nl.YEA.controller.NumeriekeVraagController;
+import nl.YEA.model.NumeriekeVraag;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,8 @@ class NumeriekeVraagInvulSchermTest {
     private NumeriekAntwoordController naControllerMock;
     @Mock
     private NumeriekeVraagController nvControllerMock;
+    @Mock
+    private NumeriekeVraag numeriekeVraagmock;
     @InjectMocks
     private NumeriekeVraagInvulScherm sut = new NumeriekeVraagInvulScherm(1);
 
@@ -37,6 +40,8 @@ class NumeriekeVraagInvulSchermTest {
     void geldigAntwoordIsAdded() {
         when(singletonMock.getNumeriekeVraagController()).thenReturn(nvControllerMock);
         when(singletonMock.getNumeriekAntwoordController()).thenReturn(naControllerMock);
+        when(nvControllerMock.getVraag(1)).thenReturn(numeriekeVraagmock);
+        when(numeriekeVraagmock.isOptioneel()).thenReturn(false);
         when(nvControllerMock.getMinimum(1)).thenReturn(1);
         when(nvControllerMock.getMaximum(1)).thenReturn(5);
         doNothing().when(inOutputUtilMock).printNl(any());

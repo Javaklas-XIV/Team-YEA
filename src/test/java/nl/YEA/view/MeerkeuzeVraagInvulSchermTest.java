@@ -3,6 +3,7 @@ package nl.YEA.view;
 import nl.YEA.Singleton;
 import nl.YEA.controller.MeerkeuzeAntwoordController;
 import nl.YEA.controller.MeerkeuzeVraagController;
+import nl.YEA.model.MeerkeuzeVraag;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,7 @@ class MeerkeuzeVraagInvulSchermTest {
     @Mock
     private MeerkeuzeAntwoordController meerkeuzeAntwoordControllerMock;
     @Mock
-    private IngevuldeVragenlijstRepo ingevuldeVragenlijstRepoMock;
+    private MeerkeuzeVraag meerkeuzeVraagMock;
     private MeerkeuzeVraagInvulScherm sut = new MeerkeuzeVraagInvulScherm(1);
 
     @BeforeEach
@@ -45,6 +46,7 @@ class MeerkeuzeVraagInvulSchermTest {
         when(meerkeuzeVraagControllerMock.getVraagBeschrijving(1)).thenReturn("");
         when(meerkeuzeVraagControllerMock.getMogelijkeAntwoorden(1)).thenReturn(List.of("ja","nee"));
         when(inOutputUtilMock.getNextLine()).thenReturn("1");
+        when(meerkeuzeVraagControllerMock.getVraag(1)).thenReturn(meerkeuzeVraagMock);
         doNothing().when(meerkeuzeAntwoordControllerMock).addToList(1, new int[]{0});
         doNothing().when(inOutputUtilMock).printNl(any());
         doNothing().when(inOutputUtilMock).print(any());
