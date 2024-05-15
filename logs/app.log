@@ -1,636 +1,692 @@
-2024-05-14 11:07:39,279 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:07:39,307 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:07:39,322 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:07:39,412 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:07:39,415 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:07:39,415 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:07:39,415 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:07:39,415 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:07:39,416 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:07:39,458 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+2024-05-15 10:05:25,723 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:05:25,754 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:05:25,768 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:05:25,863 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:05:25,868 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:05:25,869 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:05:25,869 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:05:25,869 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:05:25,870 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:05:25,913 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
 java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
 	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:259) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
 	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
 	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) [hibernate-core-6.4.4.Final.jar:6.4.4.Final]
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) [jakarta.persistence-api-3.1.0.jar:3.1.0]
-	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) [jakarta.persistence-api-3.1.0.jar:3.1.0]
-	at nl.YEA.Singleton.<init>(Singleton.java:17) [classes/:?]
-	at nl.YEA.Singleton.getInstance(Singleton.java:28) [classes/:?]
-	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) [classes/:?]
-	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) [classes/:?]
-	at nl.YEA.Main.main(Main.java:7) [classes/:?]
-2024-05-14 11:10:40,423 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:10:40,447 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:10:40,461 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:10:40,547 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:10:40,549 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:10:40,549 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:10:40,550 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:10:40,550 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:10:40,550 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:10:40,958 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:10:40,958 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:10:41,232 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:10:41,241 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@22c8ee48] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:10:41,260 DEBUG o.h.SQL [main] create table IngevuldeVragenlijst (id integer not null auto_increment, primary key (id)) engine=InnoDB
-2024-05-14 11:10:41,280 DEBUG o.h.SQL [main] create table MeerkeuzeAntwoord (vraagID integer not null, lijst_id integer not null, antwoord varchar(255), primary key (lijst_id, vraagID)) engine=InnoDB
-2024-05-14 11:10:41,291 DEBUG o.h.SQL [main] create table NumeriekAntwoord (vraagID integer not null, lijst_id integer not null, antwoord integer not null, primary key (lijst_id, vraagID)) engine=InnoDB
-2024-05-14 11:10:41,297 DEBUG o.h.SQL [main] create table OpenAntwoord (vraagID integer not null, lijst_id integer not null, antwoord varchar(255), primary key (lijst_id, vraagID)) engine=InnoDB
-2024-05-14 11:10:41,304 DEBUG o.h.SQL [main] alter table MeerkeuzeAntwoord add constraint FK_f7ep6yp6jv6usynagmcatlsjw foreign key (lijst_id) references IngevuldeVragenlijst (id)
-2024-05-14 11:10:41,323 DEBUG o.h.SQL [main] alter table NumeriekAntwoord add constraint FK_gjdfsulj2r7j45hkdiat7mc05 foreign key (lijst_id) references IngevuldeVragenlijst (id)
-2024-05-14 11:10:41,340 DEBUG o.h.SQL [main] alter table OpenAntwoord add constraint FK_3ik29vps67avsvlnyfsuyjqlg foreign key (lijst_id) references IngevuldeVragenlijst (id)
-2024-05-14 11:10:49,879 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
-2024-05-14 11:11:21,121 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
-2024-05-14 11:19:02,075 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:19:02,097 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:19:02,110 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:19:02,192 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:19:02,194 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:19:02,194 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:19:02,194 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:19:02,194 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:19:02,195 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:19:02,538 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:19:02,538 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:19:02,811 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:19:02,820 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:19:09,878 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
-2024-05-14 11:30:50,409 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:30:50,428 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:30:50,440 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:30:50,517 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:30:50,519 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:30:50,519 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:30:50,519 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:30:50,519 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:30:50,520 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:30:50,868 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:30:50,868 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:30:51,130 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:30:51,139 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:31:06,902 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:31:06,917 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:31:06,929 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:31:07,002 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:31:07,004 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:31:07,004 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:31:07,004 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:31:07,005 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:31:07,005 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:31:07,341 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:31:07,341 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:31:07,592 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:31:07,603 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:32:29,496 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:32:29,511 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:32:29,523 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:32:29,596 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:32:29,598 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:32:29,598 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:32:29,598 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:32:29,598 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:32:29,599 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:32:29,926 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:32:29,926 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:32:30,177 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:32:30,186 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:44:26,462 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:44:26,488 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:44:26,505 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:44:26,592 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:44:26,595 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:44:26,595 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:44:26,595 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:44:26,595 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:44:26,596 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:44:26,962 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:44:26,962 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:44:27,244 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:44:27,253 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:44:36,351 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:44:36,365 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:44:36,377 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:44:36,447 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:44:36,448 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:44:36,448 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:44:36,448 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:44:36,448 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:44:36,449 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:44:36,780 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:44:36,780 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:44:37,029 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:44:37,037 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 11:55:04,509 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 11:55:04,534 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 11:55:04,548 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 11:55:04,631 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 11:55:04,633 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 11:55:04,633 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 11:55:04,634 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 11:55:04,634 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 11:55:04,634 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 11:55:04,993 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 11:55:04,993 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 11:55:05,264 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 11:55:05,274 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:07:38,966 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:07:38,990 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:07:39,003 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:07:39,084 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:07:39,086 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:07:39,087 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:07:39,087 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:07:39,087 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:07:39,087 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:07:39,446 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:07:39,446 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:07:39,724 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:07:39,733 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:12:27,316 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:12:27,335 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:12:27,348 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:12:27,426 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:12:27,427 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:12:27,427 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:12:27,428 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:12:27,428 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:12:27,428 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:12:27,770 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:12:27,770 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:12:28,036 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:12:28,047 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:24:51,956 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:24:51,981 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:24:51,995 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:24:52,078 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:24:52,080 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:24:52,081 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:24:52,081 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:24:52,081 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:24:52,081 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:24:52,439 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:24:52,439 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:24:52,710 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:24:52,718 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:25:41,036 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:25:41,051 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:25:41,063 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:25:41,135 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:25:41,136 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:25:41,136 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:25:41,137 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:25:41,137 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:25:41,137 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:25:41,468 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:25:41,469 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:25:41,730 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:25:41,739 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:29:07,972 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:29:07,989 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:29:08,000 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:29:08,075 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:29:08,076 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:29:08,076 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:29:08,076 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:29:08,076 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:29:08,077 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:29:08,407 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:29:08,407 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:29:08,660 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:29:08,669 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:31:55,134 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:31:55,149 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:31:55,160 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:31:55,231 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:31:55,233 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:31:55,233 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:31:55,233 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:31:55,233 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:31:55,234 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:31:55,561 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:31:55,561 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:31:55,815 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:31:55,824 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:32:07,923 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
-2024-05-14 12:32:07,936 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:32:07,937 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [34]
-2024-05-14 12:32:07,937 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [4]
-2024-05-14 12:32:07,937 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [13]
-2024-05-14 12:32:07,939 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:32:07,939 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [3]
-2024-05-14 12:32:07,939 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [4]
-2024-05-14 12:32:07,939 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [14]
-2024-05-14 12:32:07,940 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:32:07,940 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [0]
-2024-05-14 12:32:07,941 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [4]
-2024-05-14 12:32:07,941 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [16]
-2024-05-14 12:33:20,804 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 12:33:20,819 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 12:33:20,830 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 12:33:20,902 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 12:33:20,904 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 12:33:20,904 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 12:33:20,904 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 12:33:20,904 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 12:33:20,905 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 12:33:21,232 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 12:33:21,232 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 12:33:21,480 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 12:33:21,489 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 12:33:32,132 DEBUG o.h.SQL [main] insert into IngevuldeVragenlijst values ( )
-2024-05-14 12:33:32,146 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:33:32,147 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [23]
-2024-05-14 12:33:32,147 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [5]
-2024-05-14 12:33:32,147 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [13]
-2024-05-14 12:33:32,149 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:33:32,150 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [4]
-2024-05-14 12:33:32,150 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [5]
-2024-05-14 12:33:32,150 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [14]
-2024-05-14 12:33:32,151 DEBUG o.h.SQL [main] insert into NumeriekAntwoord (antwoord,lijst_id,vraagID) values (?,?,?)
-2024-05-14 12:33:32,151 TRACE o.h.o.j.bind [main] binding parameter (1:INTEGER) <- [3]
-2024-05-14 12:33:32,151 TRACE o.h.o.j.bind [main] binding parameter (2:INTEGER) <- [5]
-2024-05-14 12:33:32,152 TRACE o.h.o.j.bind [main] binding parameter (3:INTEGER) <- [16]
-2024-05-14 13:03:47,630 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:03:47,650 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:03:47,663 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:03:47,742 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:03:47,744 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:03:47,745 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:03:48,100 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:03:48,101 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:03:48,378 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:03:48,387 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:04:44,898 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:04:44,916 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:04:44,930 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:04:45,007 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:04:45,009 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:04:45,010 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:04:45,010 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:04:45,344 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:04:45,344 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:04:45,606 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:04:45,614 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:05:17,791 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:05:17,809 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:05:17,825 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:05:17,908 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:05:17,910 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:05:17,910 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:05:17,911 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:05:17,911 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:05:17,912 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:05:18,252 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:05:18,253 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:05:18,526 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:05:18,534 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:07:35,252 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:07:35,268 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:07:35,280 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:07:35,356 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:07:35,357 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:07:35,358 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:07:35,695 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:07:35,695 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:07:35,954 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:07:35,964 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:07:50,645 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:07:50,661 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:07:50,673 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:07:50,746 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:07:50,747 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:07:50,748 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:07:50,749 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:07:51,086 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:07:51,087 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:07:51,348 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:07:51,357 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:10:38,844 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:10:38,862 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:10:38,876 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:10:38,955 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:10:38,957 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:10:38,958 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:10:39,312 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:10:39,313 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:10:39,575 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:10:39,586 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@51f01535] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:16:05,379 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:16:05,396 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:16:05,409 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:16:05,485 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:16:05,486 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:16:05,486 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:16:05,487 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:16:05,825 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:16:05,825 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:16:06,107 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:16:06,116 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@467ef400] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:21:40,062 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:21:40,089 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:21:40,104 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:21:40,192 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:21:40,194 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:21:40,194 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:21:40,195 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:21:40,195 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:21:40,196 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:21:40,564 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:21:40,564 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:21:40,844 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:21:40,852 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@467ef400] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 13:33:02,497 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 13:33:02,516 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 13:33:02,528 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 13:33:02,602 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 13:33:02,604 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 13:33:02,604 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 13:33:02,604 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 13:33:02,604 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 13:33:02,605 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 13:33:02,959 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 13:33:02,960 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 13:33:03,235 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 13:33:03,244 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13fe5bb7] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 14:36:32,018 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 14:36:32,039 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 14:36:32,052 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 14:36:32,136 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 14:36:32,139 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 14:36:32,139 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 14:36:32,139 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 14:36:32,139 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 14:36:32,140 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 14:36:32,502 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 14:36:32,502 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 14:36:32,773 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 14:36:32,782 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2321e482] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 14:49:19,270 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 14:49:19,291 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 14:49:19,306 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 14:49:19,392 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 14:49:19,395 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 14:49:19,395 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 14:49:19,396 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 14:49:19,396 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 14:49:19,396 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 14:49:19,770 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 14:49:19,771 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 14:49:20,069 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 14:49:20,079 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4276ad40] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:15:43,889 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:15:43,913 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:15:43,926 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:15:44,018 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:15:44,022 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:15:44,022 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:15:44,023 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:15:44,023 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:15:44,024 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:15:44,409 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:15:44,409 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:15:44,683 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:15:44,692 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5d37aa0f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:25:27,105 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:25:27,128 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:25:27,140 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:25:27,224 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:25:27,227 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:25:27,227 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:25:27,227 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:25:27,227 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:25:27,228 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:25:27,606 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:25:27,606 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:25:27,869 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:25:27,878 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:29:12,166 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:29:12,188 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:29:12,200 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:29:12,285 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:29:12,287 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:29:12,287 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:29:12,287 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:29:12,287 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:29:12,288 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:29:18,568 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:29:18,586 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:29:18,596 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:29:18,675 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:29:18,676 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:29:18,677 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:29:18,677 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:29:18,677 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:29:18,678 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:29:19,034 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:29:19,034 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:29:19,299 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:29:19,308 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@393ae7a0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:33:18,277 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:33:18,298 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:33:18,309 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:33:18,392 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:33:18,393 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:33:18,394 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:33:18,394 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:33:18,394 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:33:18,397 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:33:18,769 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:18,769 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:19,028 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:33:19,036 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@ff4b223] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:33:35,528 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:33:35,550 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:33:35,561 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:33:35,644 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:33:35,646 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:33:35,646 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:33:35,646 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:33:35,646 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:33:35,647 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:33:36,020 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:36,020 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:36,285 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:33:36,294 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:33:49,293 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:33:49,314 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:33:49,326 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:33:49,403 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:33:49,405 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:33:49,405 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:33:49,405 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:33:49,405 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:33:49,406 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:33:49,778 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:49,778 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:33:50,038 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:33:50,047 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:34:14,644 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:34:14,664 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:34:14,675 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:34:14,756 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:34:14,758 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:34:14,758 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:34:14,758 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:34:14,758 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:34:14,759 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:34:15,137 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:34:15,137 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:34:15,392 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:34:15,401 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:34:54,404 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:34:54,425 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:34:54,435 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:34:54,515 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:34:54,517 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:34:54,517 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:34:54,517 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:34:54,517 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:34:54,518 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:34:54,913 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:34:54,913 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:34:55,182 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:34:55,191 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:37:44,131 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:37:44,153 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:37:44,165 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:37:44,249 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:37:44,252 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:37:44,252 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:37:44,252 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:37:44,252 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:37:44,253 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:37:44,652 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:37:44,652 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:37:44,923 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:37:44,933 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:43:07,942 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:43:07,963 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:43:07,975 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:43:08,058 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:43:08,060 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:43:08,060 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:43:08,060 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:43:08,060 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:43:08,061 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:43:08,444 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:43:08,444 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:43:08,709 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:43:08,719 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:44:11,569 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:44:11,589 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:44:11,600 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:44:11,679 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:44:11,682 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:44:11,682 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:44:11,682 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:44:11,682 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:44:11,683 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:44:12,055 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:44:12,055 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:44:12,312 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:44:12,322 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:45:18,758 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:45:18,775 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:45:18,785 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:45:18,860 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:45:18,861 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:45:18,862 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:45:18,862 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:45:18,862 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:45:18,863 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:45:19,223 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:45:19,223 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:45:19,474 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:45:19,484 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:46:40,348 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:46:40,367 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:46:40,378 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:46:40,455 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:46:40,457 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:46:40,457 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:46:40,457 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:46:40,457 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:46:40,458 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:46:40,831 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:46:40,832 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:46:41,078 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:46:41,087 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:46:49,409 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:46:49,426 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:46:49,437 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:46:49,513 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:46:49,515 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:46:49,515 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:46:49,516 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:46:49,516 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:46:49,517 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:46:49,881 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:46:49,881 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:46:50,139 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:46:50,149 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
-2024-05-14 15:47:52,765 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
-2024-05-14 15:47:52,782 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-14 15:47:52,793 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
-2024-05-14 15:47:52,869 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
-2024-05-14 15:47:52,871 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
-2024-05-14 15:47:52,871 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
-2024-05-14 15:47:52,871 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
-2024-05-14 15:47:52,871 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
-2024-05-14 15:47:52,872 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
-2024-05-14 15:47:53,239 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
-2024-05-14 15:47:53,239 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
-2024-05-14 15:47:53,497 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-05-14 15:47:53,506 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@214fba74] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at nl.YEA.Singleton.<init>(Singleton.java:21) ~[classes/:?]
+	at nl.YEA.Singleton.getInstance(Singleton.java:34) ~[classes/:?]
+	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) ~[classes/:?]
+	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulScherm.<init>(NumeriekeVraagInvulScherm.java:8) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulSchermTest.<init>(NumeriekeVraagInvulSchermTest.java:27) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:553) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:74) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:364) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:311) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:287) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2024-05-15 10:05:56,201 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:05:56,226 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:05:56,238 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:05:56,322 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:05:56,324 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:05:56,324 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:05:56,324 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:05:56,324 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:05:56,325 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:05:56,370 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:259) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at nl.YEA.Singleton.<init>(Singleton.java:21) ~[classes/:?]
+	at nl.YEA.Singleton.getInstance(Singleton.java:34) ~[classes/:?]
+	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) ~[classes/:?]
+	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulScherm.<init>(NumeriekeVraagInvulScherm.java:8) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulSchermTest.<init>(NumeriekeVraagInvulSchermTest.java:27) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:553) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:74) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:364) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:311) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:287) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2024-05-15 10:06:28,264 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:06:28,282 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:06:28,292 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:06:28,366 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:06:28,368 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:06:28,368 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:06:28,368 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:06:28,368 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:06:28,369 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:06:28,414 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:259) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at nl.YEA.Singleton.<init>(Singleton.java:21) ~[classes/:?]
+	at nl.YEA.Singleton.getInstance(Singleton.java:34) ~[classes/:?]
+	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) ~[classes/:?]
+	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulScherm.<init>(NumeriekeVraagInvulScherm.java:8) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulSchermTest.<init>(NumeriekeVraagInvulSchermTest.java:27) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:553) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:74) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:364) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:311) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:287) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2024-05-15 10:06:51,558 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:06:51,581 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:06:51,593 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:06:51,683 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:06:51,685 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:06:51,685 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:06:51,685 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:06:51,685 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:06:51,686 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:06:51,738 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:259) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at nl.YEA.Singleton.<init>(Singleton.java:21) ~[classes/:?]
+	at nl.YEA.Singleton.getInstance(Singleton.java:34) ~[classes/:?]
+	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) ~[classes/:?]
+	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulScherm.<init>(NumeriekeVraagInvulScherm.java:8) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulSchermTest.<init>(NumeriekeVraagInvulSchermTest.java:27) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:553) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:74) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:364) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:311) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:287) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+2024-05-15 10:08:15,838 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:08:15,865 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:08:15,879 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:08:15,972 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:08:15,974 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:08:15,974 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:08:15,975 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:08:15,975 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:08:15,976 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:08:16,398 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-15 10:08:16,398 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-15 10:08:16,667 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-15 10:08:16,677 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4809c771] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-15 10:11:41,023 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:11:41,049 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:11:41,061 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:11:41,149 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:11:41,152 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:11:41,152 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:11:41,152 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:11:41,152 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:11:41,153 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:11:41,538 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-15 10:11:41,538 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-15 10:11:41,815 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-15 10:11:41,824 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4809c771] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-15 10:12:32,009 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:12:32,031 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:12:32,043 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:12:32,126 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:12:32,128 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:12:32,128 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:12:32,128 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:12:32,128 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:12:32,129 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:12:32,519 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-15 10:12:32,519 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-15 10:12:32,813 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-15 10:12:32,823 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4809c771] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-15 10:14:57,391 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:14:57,417 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:14:57,430 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:14:57,519 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:14:57,522 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:14:57,522 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:14:57,522 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:14:57,522 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:14:57,523 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:14:57,922 WARN o.h.m.RootClass [main] HHH000038: Composite-id class does not override equals(): nl.YEA.model.AntwoordPK
+2024-05-15 10:14:57,922 WARN o.h.m.RootClass [main] HHH000039: Composite-id class does not override hashCode(): nl.YEA.model.AntwoordPK
+2024-05-15 10:14:58,201 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [main] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-15 10:14:58,210 INFO o.h.o.c.access [main] HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4809c771] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+2024-05-15 10:15:17,190 INFO o.h.j.i.u.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: MySQL]
+2024-05-15 10:15:17,207 INFO o.h.Version [main] HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-15 10:15:17,218 INFO o.h.c.i.RegionFactoryInitiator [main] HHH000026: Second-level cache disabled
+2024-05-15 10:15:17,294 WARN o.h.o.c.pooling [main] HHH10001002: Using built-in connection pool (not intended for production use)
+2024-05-15 10:15:17,296 INFO o.h.o.c.pooling [main] HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+2024-05-15 10:15:17,296 INFO o.h.o.c.pooling [main] HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/DB]
+2024-05-15 10:15:17,296 INFO o.h.o.c.pooling [main] HHH10001001: Connection properties: {password=****, user=root}
+2024-05-15 10:15:17,296 INFO o.h.o.c.pooling [main] HHH10001003: Autocommit mode: false
+2024-05-15 10:15:17,297 INFO o.h.o.c.pooling [main] HHH10001115: Connection pool size: 20 (min=1)
+2024-05-15 10:15:17,338 WARN o.h.e.j.e.i.JdbcEnvironmentInitiator [main] HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:259) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:428) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:276) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:132) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:372) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:550) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:102) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:82) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:136) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:247) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:395) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:262) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:107) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:130) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:238) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:215) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:223) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:170) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1432) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1503) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:55) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:80) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at jakarta.persistence.Persistence.createEntityManagerFactory(Persistence.java:55) ~[jakarta.persistence-api-3.1.0.jar:3.1.0]
+	at nl.YEA.Singleton.<init>(Singleton.java:21) ~[classes/:?]
+	at nl.YEA.Singleton.getInstance(Singleton.java:34) ~[classes/:?]
+	at nl.YEA.view.InvulScherm.<init>(InvulScherm.java:7) ~[classes/:?]
+	at nl.YEA.view.InOutputUtil.getInstance(InOutputUtil.java:34) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulScherm.<init>(NumeriekeVraagInvulScherm.java:8) ~[classes/:?]
+	at nl.YEA.view.NumeriekeVraagInvulSchermTest.<init>(NumeriekeVraagInvulSchermTest.java:27) ~[test-classes/:?]
+	at jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:486) ~[?:?]
+	at org.junit.platform.commons.util.ReflectionUtils.newInstance(ReflectionUtils.java:553) ~[junit-platform-commons-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.execution.ConstructorInvocation.proceed(ConstructorInvocation.java:56) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.api.extension.InvocationInterceptor.interceptTestClassConstructor(InvocationInterceptor.java:74) ~[junit-jupiter-api-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:62) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestClassConstructor(ClassBasedTestDescriptor.java:364) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateTestClass(ClassBasedTestDescriptor.java:311) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassTestDescriptor.instantiateTestClass(ClassTestDescriptor.java:79) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:287) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69) ~[junit-jupiter-engine-5.10.2.jar:5.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at java.util.ArrayList.forEach(ArrayList.java:1596) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.10.2.jar:1.10.2]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]

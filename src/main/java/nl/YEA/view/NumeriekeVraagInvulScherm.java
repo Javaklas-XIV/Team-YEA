@@ -5,7 +5,7 @@ import nl.YEA.controller.NumeriekAntwoordController;
 import nl.YEA.controller.NumeriekeVraagController;
 
 public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
-    private InOutputUtil inOutputUtil = InOutputUtil.getInstance();
+    private InOutputUtil inOutputUtil;
 
     public NumeriekeVraagInvulScherm(int vraag) {
         super(vraag);
@@ -13,6 +13,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
 
     @Override
     public void show() {
+        inOutputUtil = InOutputUtil.getInstance();
         Singleton singleton = Singleton.getInstance();
         NumeriekeVraagController nvController = singleton.getNumeriekeVraagController();
         NumeriekAntwoordController naController = singleton.getNumeriekAntwoordController();
@@ -42,7 +43,7 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
                 isGetal = true;
             } catch (NumberFormatException e) {
                 inOutputUtil.printNl("Geen geldige input");
-                strAntwoord = InOutputUtil.getInstance().getNextLine();
+                strAntwoord = inOutputUtil.getNextLine();
             }
         }
         return antwoord;

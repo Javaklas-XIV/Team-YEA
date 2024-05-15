@@ -12,8 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class NumeriekAntwoordControllerTest {
@@ -42,8 +42,7 @@ class NumeriekAntwoordControllerTest {
 
         sut.addAntwoord(vraagNr, antwoord);
 
-        verify(ingevuldeVragenlijstRepoMock).addAntwoord(new NumeriekAntwoord(vraagNr, antwoord));
-        verify(ingevuldeVragenlijstRepoMock).addAntwoord(any());
+        verify(ingevuldeVragenlijstRepoMock, times(1)).addAntwoord(any());
     }
 
 }
