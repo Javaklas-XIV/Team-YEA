@@ -21,4 +21,8 @@ public class NumeriekAntwoord extends Antwoord {
     public void setAntwoord(int antwoord) {
         this.antwoord = antwoord;
     }
+
+    public int getAntwoord() {
+        return antwoord;
+    }
 }
