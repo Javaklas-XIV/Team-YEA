@@ -43,7 +43,9 @@ public class InvulScherm implements Scherm {
     }
 
     private void handleFormulierOnderdeel(FormulierOnderdeel onderdeel) {
-        inOutputUtil.printNl(onderdeel.getBeschrijving());
+        if (!onderdeel.getBeschrijving().isEmpty()) {
+            inOutputUtil.printNl(onderdeel.getBeschrijving());
+        }
         if (onderdeel.isOptioneel()) {
             boolean skip = inOutputUtil.handleOptioneel();
             if (skip) {

@@ -189,7 +189,7 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(opleiding, List.of(oLagerOnderwijs, oLagerBeroepsonderwijs,
                         oMiddelbaarAlgemeenOnderwijs, oMiddelbaarBeroepsonderwijs, oVoortgezetAlgemeen, oHogerBeroepsonderwijs,
                         oHogerAlgemeenEnWetenschappelijkOnderwijs)),
-                new MeerkeuzeVraag(hobby,optiesNeeJa,1,1,Map.of(1,new OpenVraag("namenlijk?"))),
+                new MeerkeuzeVraag(hobby, optiesNeeJa, 1, 1, Map.of(1, new OpenVraag("namenlijk?"))),
 
 
                 /* Deel 2 Algemene werkinformatie */
@@ -200,9 +200,7 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d2v4, optiesNeeJa),
                 new NumeriekeVraag(d2v5, 0, 70),
                 new MeerkeuzeVraag(d2v6, List.of("vast", "tijdelijk")),
-                /*new ComplexeVraag(d2v7, Map.of(
-                        "nee", null,
-                        "ja", List.of(new OpenVraag("sinds?"), new OpenVraag("vanwege?")))),*/
+                new MeerkeuzeVraag(d2v7, optiesNeeJa, 1, 1, Map.of(1, new OpenVraag("vanwege?"))),
 
 
                 /* Deel 3 Gehoor, medische voorgeschiedenis en hoorhulpmiddelen */
@@ -219,6 +217,17 @@ public class VragenlijstWerkEnGehoor {
                 //new ComplexeVraag(d3v11, optiesNeeJaNamelijk),
                 new MeerkeuzeVraag(d3v12, optiesNeeJa),
                 new MeerkeuzeVraag(d3v13, optiesNeeJa),
+                new MeerkeuzeVraag(d3v14, optiesNeeJa, 1, 1, Map.of(1,
+                        new MeerkeuzeVraag(d3v14_extra ,List.of("links","rechts"),1,2,Map.of(
+                                0,new FormulierOnderdeel("", List.of(
+                                        new OpenVraag(d3v14_linksMerk),
+                                        new OpenVraag(d3v14_linksSinds)
+                                )),
+                                1,new FormulierOnderdeel("", List.of(
+                                        new OpenVraag(d3v14_rechtsMerk),
+                                        new OpenVraag(d3v14_rechtsSinds)
+                                ))
+                        )))),
                 /*new ComplexeVraag(d3v14, Map.of(
                         "nee", null,
                         "ja", List.of(
@@ -236,6 +245,7 @@ public class VragenlijstWerkEnGehoor {
                                 new OpenVraag(d3v16)
                         )
                 )),*/
+                new MeerkeuzeVraag(d3v17, optiesNeeJa, 1, 1, Map.of(1, new OpenVraag("namenlijk?"))),
                 //new ComplexeVraag(d3v17, optiesNeeJaNamelijk),
 
 
@@ -245,6 +255,11 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d4v3b, optiesHoeveelheid),
                 new MeerkeuzeVraag(d4v4a, optiesFrequentie),
                 new MeerkeuzeVraag(d4v4b, optiesHoeveelheid),
+                new MeerkeuzeVraag(d4v5a, optiesNeeJa, 1, 1, Map.of(
+                        1, new FormulierOnderdeel("", List.of(
+                                new OpenVraag(d4v5a_ja),
+                                new MeerkeuzeVraag(d4v5b, optiesHoeveelheid)
+                        )))),
                 /*new ComplexeVraag(d4v5a, Map.of(
                         "nee", null,
                         "ja", List.of(
@@ -268,11 +283,13 @@ public class VragenlijstWerkEnGehoor {
                 new MeerkeuzeVraag(d5v1g, optiesNeeJa),
                 new MeerkeuzeVraag(d5v1h, optiesNeeJa),
                 new MeerkeuzeVraag(d5v1i, optiesNeeJa),
+                new MeerkeuzeVraag(d5v1j, optiesNeeJa, 1, 1, Map.of(1, new OpenVraag(d5v1j_ja))),
                 /*new ComplexeVraag(d5v1j, Map.of(
                         "nee", null,
                         "ja", List.of(new OpenVraag(d5v1j_ja))
-                )),
-                new ComplexeVraag(d5v1k, Map.of(
+                )),*/
+                new MeerkeuzeVraag(d5v1k, optiesNeeJa, 1, 1, Map.of(1, new OpenVraag(d5v1k_ja))),
+                /*new ComplexeVraag(d5v1k, Map.of(
                         "nee", null,
                         "ja", List.of(new OpenVraag(d5v1k_ja))
                 )),*/
@@ -289,37 +306,36 @@ public class VragenlijstWerkEnGehoor {
     private void voegNummeringToe(List<FormulierObject> vragenlijst) {
         int i = 1;
         for (FormulierObject o : vragenlijst) {
-            i=nummeringFormulierObject(i,o);
+            i = nummeringFormulierObject(i, o);
         }
     }
 
-    private int nummeringFormulierObject(int i,FormulierObject object){
-        if (object instanceof FormulierOnderdeel){
-            i=nummeringFormulierOnderdeel(i,(FormulierOnderdeel) object);
-        }else if (object instanceof MeerkeuzeVraag||object instanceof OpenVraag||object instanceof NumeriekeVraag){
-            i=nummeringVraag(i,(Vraag) object);
-        }else{
+    private int nummeringFormulierObject(int i, FormulierObject object) {
+        if (object instanceof FormulierOnderdeel) {
+            i = nummeringFormulierOnderdeel(i, (FormulierOnderdeel) object);
+        } else if (object instanceof MeerkeuzeVraag || object instanceof OpenVraag || object instanceof NumeriekeVraag) {
+            i = nummeringVraag(i, (Vraag) object);
+        } else {
             throw new RuntimeException("formobject not handled in invul scherm");
         }
         return i;
     }
 
-    private int nummeringFormulierOnderdeel(int i,FormulierOnderdeel onderdeel){
-        for (FormulierObject object:onderdeel.getOnderdeelen()){
-            i = nummeringFormulierObject(i,object);
+    private int nummeringFormulierOnderdeel(int i, FormulierOnderdeel onderdeel) {
+        for (FormulierObject object : onderdeel.getOnderdeelen()) {
+            i = nummeringFormulierObject(i, object);
         }
         return i;
     }
 
-    private int nummeringVraag(int i,Vraag vraag){
+    private int nummeringVraag(int i, Vraag vraag) {
         vraag.setVraagnummer(i++);
         int vraagNr = vraag.getVraagnummer();
         AntwoordController antwoordController = Singleton.getInstance().getMeerkeuzeAntwoordController();
-        if(antwoordController.antwoordExists(vraag.getVraagnummer())){
-            for (FormulierObject object:vraag.getLinksByAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))){
-                i=nummeringFormulierObject(i,object);
-            }
+        for (FormulierObject object : vraag.getAllAntwoordLinks()) {
+            i = nummeringFormulierObject(i, object);
         }
+
         return i;
     }
 }

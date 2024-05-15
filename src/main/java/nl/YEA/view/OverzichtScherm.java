@@ -20,7 +20,7 @@ public class OverzichtScherm implements Scherm{
                 i++;
             }
             io.printNl("[b] Terug.");
-            running=listenForInput(io, singleton, ingevuldeVragenlijsten);
+            running = listenForInput(io, singleton, ingevuldeVragenlijsten);
         }
     }
 

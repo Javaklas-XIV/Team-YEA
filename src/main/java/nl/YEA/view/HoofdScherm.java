@@ -23,7 +23,7 @@ public class HoofdScherm implements Scherm{
                     break;
                 case "2":
                     inOutputUtil.getOverzichtScherm().show();
-                    inOutputUtil.getNextLine();
+                    inOutputUtil.printNl("");
                     break;
                 case "x":
                     inOutputUtil.printNl("Afsluiten");

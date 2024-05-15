@@ -76,7 +76,9 @@ public class MeerkeuzeVraag extends Vraag {
     @Override
     public List<FormulierObject> getAllAntwoordLinks() {
         List<FormulierObject> result = new ArrayList<>(antwoordToLinkMap.values());
-        result.add(getAnyAwnserLink());
+        if (getAnyAwnserLink()!=null) {
+            result.add(getAnyAwnserLink());
+        }
         return result;
     }
 }

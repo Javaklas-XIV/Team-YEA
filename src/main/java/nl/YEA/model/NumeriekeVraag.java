@@ -43,7 +43,9 @@ public class NumeriekeVraag extends Vraag {
     @Override
     public List<FormulierObject> getAllAntwoordLinks() {
         List<FormulierObject> result = new ArrayList<>(awnserToLinkMap.values());
-        result.add(getAnyAwnserLink());
+        if (getAnyAwnserLink()!=null) {
+            result.add(getAnyAwnserLink());
+        }
         return result;
     }
 
