@@ -87,7 +87,7 @@ public class InOutputUtil {
         if (vraag instanceof MeerkeuzeVraag){
             inzienScherm = new MeerkeuzeAntwoordInzienScherm(vraagNr);
         }else if (vraag instanceof NumeriekeVraag){
-            inzienScherm = new NumeriekeAntwoordInzienScherm(vraagNr);
+            inzienScherm = new NumeriekAntwoordInzienScherm(vraagNr);
         }else if (vraag instanceof OpenVraag){
             inzienScherm = new OpenAntwoordInzienScherm(vraagNr);
         }else{
