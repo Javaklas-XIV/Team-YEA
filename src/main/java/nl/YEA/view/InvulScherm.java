@@ -11,17 +11,15 @@ import java.util.List;
 
 public class InvulScherm implements Scherm {
     Singleton singleton = Singleton.getInstance();
-    InOutputUtil io;
+    InOutputUtil inOutputUtil;
 
     @Override
     public void show() {
-        io = InOutputUtil.getInstance();
+        inOutputUtil = InOutputUtil.getInstance();
         singleton.getRepo().clearIngevuldeVragenLijst();
         VraagController vraagController = singleton.getInvulController();
         List<FormulierObject> vragenlijst = vraagController.getVragenLijst();
         boolean running = true;
-        //int vraagNr;
-        //int nextVraagNr = 1;
         int i = 0;
         while (running) {
             if (i < vragenlijst.size()) {
@@ -33,36 +31,37 @@ public class InvulScherm implements Scherm {
         }
         singleton.getRepo().saveIngevuldeVragenlijst();
     }
-    private void handleFormulierObject(FormulierObject object){
-        if (object instanceof FormulierOnderdeel){
+
+    private void handleFormulierObject(FormulierObject object) {
+        if (object instanceof FormulierOnderdeel) {
             handleFormulierOnderdeel((FormulierOnderdeel) object);
-        }else if (object instanceof Vraag){
+        } else if (object instanceof Vraag) {
             handleVraag((Vraag) object);
-        }else{
+        } else {
             throw new RuntimeException("formobject not handled in invul scherm");
         }
     }
 
-    private void handleFormulierOnderdeel(FormulierOnderdeel onderdeel){
-        io.printNl(onderdeel.getBeschrijving());
-        if (onderdeel.isOptioneel()){
-            boolean skip = io.handleOptioneel();
-            if (skip){
+    private void handleFormulierOnderdeel(FormulierOnderdeel onderdeel) {
+        inOutputUtil.printNl(onderdeel.getBeschrijving());
+        if (onderdeel.isOptioneel()) {
+            boolean skip = inOutputUtil.handleOptioneel();
+            if (skip) {
                 return;
             }
         }
-        for (FormulierObject object:onderdeel.getOnderdeelen()){
+        for (FormulierObject object : onderdeel.getOnderdeelen()) {
             handleFormulierObject(object);
         }
     }
 
-    private void handleVraag(Vraag vraag){
+    private void handleVraag(Vraag vraag) {
         int vraagNr = vraag.getVraagnummer();
         AntwoordController antwoordController = singleton.getAntwoordController();
-        VraagInvulScherm scherm = io.getVraagInvulScherm(vraagNr);
+        VraagInvulScherm scherm = inOutputUtil.getVraagInvulScherm(vraagNr);
         scherm.show();
-        if(antwoordController.antwoordExists(vraag.getVraagnummer())){
-            for (FormulierObject object:vraag.getLinksByAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))){
+        if (antwoordController.antwoordExists(vraag.getVraagnummer())) {
+            for (FormulierObject object : vraag.getLinksByAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))) {
                 handleFormulierObject(object);
             }
         }

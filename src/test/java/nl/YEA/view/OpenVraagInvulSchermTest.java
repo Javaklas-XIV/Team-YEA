@@ -50,12 +50,7 @@ public class OpenVraagInvulSchermTest {
         when(openVraagControllerMock.getVraag(vNr)).thenReturn(new OpenVraag(test, 200));
         when(openVraagControllerMock.getmaxAantalTekens(vNr)).thenReturn(300L);
         doNothing().when(openAntwoordControllerMock).addAntwoord(0 ,"Abc");
-        doNothing().when(inOutputUtilMock).print(any());
         sut.show();
-        verify(inOutputUtilMock).print("""
-
-                Vraag succesvol opgeslagen
-
-                """);
+        verify(openAntwoordControllerMock).addAntwoord(0,"Abc");
     }
 }

@@ -24,7 +24,9 @@ public class MeerkeuzeAntwoordInzienScherm extends AntwoordInzienScherm{
         int max = meerkeuzeVraagController.getMaxKeuzes(vraagNr);
         int min = meerkeuzeVraagController.getMinKeuzes(vraagNr);
         io.printNl(vraagbeschrijving);
-        io.print("min: "+min+"  max: "+max+"\n");
+        if (min!=1 || max!=1) {
+            io.printNl("(Kies minimaal "+min+" en maximaal "+max+" opties)");
+        }
         Set<Integer> gekozen = new HashSet<>();
         if (isHeeftAntwoord()){
             gekozen.addAll(meerkeuzeAntwoordController.getAntwoord(vraagNr));

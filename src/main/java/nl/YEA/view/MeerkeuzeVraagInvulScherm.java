@@ -27,25 +27,26 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm {
         if (meerkeuzeVraagController.getVraag(vraagNr).isOptioneel()){
             io.handleOptioneel();
         }
-        while (running) {
-            if (!gekozenAntwoorden.isEmpty()) {
-                io.print("reeds gekozen antwoorden:\n");
-                for (String keuze : gekozenAntwoorden) {
-                    io.print(keuze + "\n");
+        while (running){;
+            if (gekozenAntwoorden.size()>0) {
+                io.print("Reeds gekozen antwoorden:\n");
+                for (String keuze : gekozenAntwoorden){
+                    io.print(keuze+"\n");
                 }
             }
-            io.print("min: " + min + "  max: " + max + "\n");
-            io.print("maak uw keuze:\n");
+            if (min != 1 || max != 1) {
+                io.printNl("(Kies minimaal "+min+" en maximaal "+max+" opties)");
+            }
             List<String> nogKiesbaareAntworden = new ArrayList<>(mogelijkeAntwoorden);
             nogKiesbaareAntworden.removeAll(gekozenAntwoorden);
             printAntwoordKeuzes(io, nogKiesbaareAntworden);
-            int i = nogKiesbaareAntworden.size() + 1;
-            if (!gekozenAntwoorden.isEmpty()) {
-                io.print("[" + i + "] : wis antwoorden\n");
+            int i = nogKiesbaareAntworden.size()+1;
+            if (gekozenAntwoorden.size()>0) {
+                io.print("[" + i + "] : Wis antwoorden\n");
                 i++;
             }
-            if (gekozenAntwoorden.size() >= min) {
-                io.print("[" + i + "] : akkoord\n");
+            if (gekozenAntwoorden.size()>=min){
+                io.print("[" + i + "] : Akkoord\n");
             }
             running = listenforKeuze(io, nogKiesbaareAntworden, gekozenAntwoorden, min, max);
         }
@@ -71,8 +72,8 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm {
         int keuze = 0;
         try {
             keuze = Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            io.print("geen nummer probeer opniew:\n");
+        }catch (NumberFormatException e){
+            io.print("Geen nummer, probeer opnieuw:\n");
             return true;
         }
         int clearNr = !alGekozen.isEmpty() ? hedenMogelijkeKeuzes.size() + 1 : -1;
@@ -89,8 +90,8 @@ public class MeerkeuzeVraagInvulScherm extends VraagInvulScherm {
             return true;
         } else if (keuze == accept && accept != -1) {
             return false;
-        } else {
-            io.print("ongeldige keuze probeer opniew: \n");
+        }else{
+            io.print("Ongeldige keuze, probeer opnieuw: \n");
             return true;
         }
     }

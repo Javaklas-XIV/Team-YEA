@@ -6,7 +6,7 @@ import nl.YEA.controller.OpenAntwoordController;
 import nl.YEA.controller.OpenVraagController;
 import nl.YEA.model.Vraag;
 
-public class OpenVraagInvulScherm extends VraagInvulScherm{
+public class OpenVraagInvulScherm extends VraagInvulScherm {
 
     public OpenVraagInvulScherm(int vraag) {
         super(vraag);
@@ -14,7 +14,7 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
 
     @Override
     public void show() {
-        InOutputUtil.getInstance().printNl("Open-Vraag");
+//        InOutputUtil.getInstance().printNl("Open-Vraag");
         InOutputUtil inOutputUtil = InOutputUtil.getInstance();
         Singleton singleton = Singleton.getInstance();
 
@@ -23,8 +23,8 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
         String beschrijving = openVraagController.getVraagBeschrijving(super.vraagNr);
         int vraagnummer = openVraagController.getVraag(super.vraagNr).getVraagnummer();
         boolean running = true;
-        inOutputUtil.print(beschrijving+"\n");
-        if (openVraagController.getVraag(vraagNr).isOptioneel()){
+        inOutputUtil.print(beschrijving + "\n");
+        if (openVraagController.getVraag(vraagNr).isOptioneel()) {
             inOutputUtil.handleOptioneel();
         }
         while (running) {
@@ -33,17 +33,8 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
             if (input.length() < max && !input.isEmpty()) {
                 openAntwoordController.addAntwoord(vraagnummer, input);
                 running = false;
-                inOutputUtil.print("""
-
-                        Vraag succesvol opgeslagen
-
-                        """);
             } else {
-                inOutputUtil.print("""
-
-                        Niks ingevuld/Te lang antwoord, probeer opnieuw
-                        
-                        """);
+                inOutputUtil.printNl("Niks ingevuld/Te lang antwoord, probeer opnieuw:");
             }
         }
     }
