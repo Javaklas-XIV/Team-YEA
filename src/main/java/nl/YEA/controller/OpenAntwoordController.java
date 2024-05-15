@@ -3,6 +3,7 @@ package nl.YEA.controller;
 import nl.YEA.Singleton;
 import nl.YEA.exceptions.TeGrootAntwoordException;
 import nl.YEA.model.OpenAntwoord;
+import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
 public class OpenAntwoordController extends AntwoordController{
 
@@ -17,5 +18,10 @@ public class OpenAntwoordController extends AntwoordController{
         } else {
             throw new TeGrootAntwoordException("Antwoord mag niet leeg of boven 256 characters zijn");
         }
+    }
+
+    public OpenAntwoord getAntwoord(int vraagNr){
+        IngevuldeVragenlijstRepo ingevuldeVragenlijstRepo = Singleton.getInstance().getRepo();
+        return ((OpenAntwoord)ingevuldeVragenlijstRepo.ingevuldeVragenlijstGetAntwoord(vraagNr));
     }
 }

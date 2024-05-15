@@ -19,4 +19,5 @@ public class OpenVraag extends Vraag {
     public void setMaxAantalTekens(int maxAantalTekens) {
         this.maxAantalTekens = maxAantalTekens;
     }
+
 }

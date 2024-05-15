@@ -29,4 +29,5 @@ public abstract class Antwoord {
     public int getVraagID() {
         return vraagID;
     }
+
 }

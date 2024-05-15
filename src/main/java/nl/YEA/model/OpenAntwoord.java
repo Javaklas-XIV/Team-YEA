@@ -14,4 +14,8 @@ public class OpenAntwoord extends Antwoord {
     public OpenAntwoord() {
 
     }
+
+    public String getAntwoord() {
+        return antwoord;
+    }
 }
