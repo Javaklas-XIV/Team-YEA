@@ -12,7 +12,7 @@ public class OpenAntwoordController extends AntwoordController{
     }
 
     public void addAntwoord(int vraagNr, String antwoord){
-        if(antwoordGoedgekeurd(vraagNr)){
+        if(antwoordGoedgekeurd(vraagNr, antwoord)){
             Singleton.getInstance().getRepo().addAntwoord(new OpenAntwoord(vraagNr, antwoord));
         } else {
             throw new TeGrootAntwoordException("Antwoord mag niet leeg of boven 256 characters zijn");
