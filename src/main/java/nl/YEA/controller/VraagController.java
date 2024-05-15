@@ -43,7 +43,7 @@ public class VraagController {
     private Vraag searchFormulierOnderdeel(int vraagNr, FormulierOnderdeel onderdeel){
         Vraag result = null;
         for (FormulierObject object:onderdeel.getOnderdeelen()){
-            result=searchFormulierObject(vraagNr,onderdeel);
+            result=searchFormulierObject(vraagNr,object);
             if (result!=null){
                 return result;
             }
