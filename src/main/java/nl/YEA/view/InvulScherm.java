@@ -52,7 +52,7 @@ public class InvulScherm implements Scherm {
                 return;
             }
         }
-        for (FormulierObject object : onderdeel.getOnderdeelen()) {
+        for (FormulierObject object : onderdeel.getOnderdelen()) {
             handleFormulierObject(object);
         }
     }
@@ -63,7 +63,7 @@ public class InvulScherm implements Scherm {
         VraagInvulScherm scherm = inOutputUtil.getVraagInvulScherm(vraagNr);
         scherm.show();
         if (antwoordController.antwoordExists(vraag.getVraagnummer())) {
-            for (FormulierObject object : vraag.getLinksByAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))) {
+            for (FormulierObject object : vraag.getVervolgvraagVoorAntwoord(antwoordController.getGeneriekAntwoord(vraagNr))) {
                 handleFormulierObject(object);
             }
         }

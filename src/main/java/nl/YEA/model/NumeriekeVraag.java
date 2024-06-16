@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 public class NumeriekeVraag extends Vraag {
-    private Map<Integer, FormulierObject> awnserToLinkMap = new HashMap<>();
+    private Map<Integer, FormulierObject> antwoordNaarVervolgvraag = new HashMap<>();
     private int minimum;
     private int maximum;
 
@@ -25,24 +25,25 @@ public class NumeriekeVraag extends Vraag {
     }
 
     @Override
-    public List<FormulierObject> getLinksByAntwoord(Antwoord antwoord) {
+    public List<FormulierObject> getVervolgvraagVoorAntwoord(Antwoord antwoord) {
         List<FormulierObject> result = new ArrayList<>();
         if (getAnyAwnserLink()!=null) {
             result.add(getAnyAwnserLink());
         }
         int antwoordInt=((NumeriekAntwoord)antwoord).getAntwoord();
-        if (awnserToLinkMap.containsKey(antwoordInt)){
-            result.add(awnserToLinkMap.get(antwoordInt));
+        if (antwoordNaarVervolgvraag.containsKey(antwoordInt)){
+            result.add(antwoordNaarVervolgvraag.get(antwoordInt));
         }
         return result;
     }
 
-    public void addAwnserLinks(int awnser, FormulierObject link){
-        awnserToLinkMap.put(awnser,link);
+    public void addVervolgvraag(int antwoord, FormulierObject vervolg){
+        antwoordNaarVervolgvraag.put(antwoord,vervolg);
     }
+
     @Override
-    public List<FormulierObject> getAllAntwoordLinks() {
-        List<FormulierObject> result = new ArrayList<>(awnserToLinkMap.values());
+    public List<FormulierObject> getAlleVervolgvragen() {
+        List<FormulierObject> result = new ArrayList<>(antwoordNaarVervolgvraag.values());
         if (getAnyAwnserLink()!=null) {
             result.add(getAnyAwnserLink());
         }

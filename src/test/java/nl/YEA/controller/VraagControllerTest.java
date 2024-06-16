@@ -39,7 +39,7 @@ class VraagControllerTest {
     public void VraagAddedInOnderdeelCanBeFound(){
         Vraag vraag = new OpenVraag("kaas");
         FormulierOnderdeel onderdeel = new FormulierOnderdeel("kaas");
-        onderdeel.getOnderdeelen().add(vraag);
+        onderdeel.getOnderdelen().add(vraag);
         vraag.setVraagnummer(1);
         when(singletonMock.getVragenlijst()).thenReturn(List.of(onderdeel));
         sut = new VraagController();

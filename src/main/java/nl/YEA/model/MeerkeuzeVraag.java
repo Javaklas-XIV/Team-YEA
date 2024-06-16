@@ -10,8 +10,8 @@ public class MeerkeuzeVraag extends Vraag {
     private int maxAantalKeuzes;
     private List<String> keuzemogelijkheden;
 
-    private Map<Integer, FormulierObject> antwoordToLinkMap = new HashMap<>();
-
+    private Map<Integer, FormulierObject> antwoordNaarVervolgvraag = new HashMap<>();
+    
     public MeerkeuzeVraag(String beschrijving, List<String> keuzemogelijkheden, int minAantalKeuzes, int maxAantalKeuzes) {
         this(beschrijving, keuzemogelijkheden, minAantalKeuzes, maxAantalKeuzes, new HashMap<>(), null);
     }
@@ -27,7 +27,7 @@ public class MeerkeuzeVraag extends Vraag {
         this.keuzemogelijkheden = keuzemogelijkheden;
         this.minAantalKeuzes = minAantalKeuzes;
         this.maxAantalKeuzes = maxAantalKeuzes;
-        this.antwoordToLinkMap = links;
+        this.antwoordNaarVervolgvraag = links;
         this.setAnyAwnserLink(any);
     }
 
@@ -57,25 +57,26 @@ public class MeerkeuzeVraag extends Vraag {
     }
 
     @Override
-    public List<FormulierObject> getLinksByAntwoord(Antwoord antwoord) {
+    public List<FormulierObject> getVervolgvraagVoorAntwoord(Antwoord antwoord) {
         List<FormulierObject> result = new ArrayList<>();
         if (getAnyAwnserLink()!=null){
             result.add(getAnyAwnserLink());
         }
         for (int i:((MeerkeuzeAntwoord)antwoord).getAntwoord()){
-            if (antwoordToLinkMap.containsKey(i)){
-                result.add(antwoordToLinkMap.get(i));
+            if (antwoordNaarVervolgvraag.containsKey(i)){
+                result.add(antwoordNaarVervolgvraag.get(i));
             }
         }
         return result;
     }
 
-    public void addAwnserLinks(int awnser, FormulierObject link){
-        antwoordToLinkMap.put(awnser,link);
+    public void addVervolgvraag(int antwoord, FormulierObject vervolg){
+        antwoordNaarVervolgvraag.put(antwoord,vervolg);
     }
+
     @Override
-    public List<FormulierObject> getAllAntwoordLinks() {
-        List<FormulierObject> result = new ArrayList<>(antwoordToLinkMap.values());
+    public List<FormulierObject> getAlleVervolgvragen() {
+        List<FormulierObject> result = new ArrayList<>(antwoordNaarVervolgvraag.values());
         if (getAnyAwnserLink()!=null) {
             result.add(getAnyAwnserLink());
         }

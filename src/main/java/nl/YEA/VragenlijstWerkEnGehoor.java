@@ -2,7 +2,6 @@ package nl.YEA;
 
 import nl.YEA.controller.AntwoordController;
 import nl.YEA.model.*;
-import nl.YEA.view.VraagInvulScherm;
 
 import java.util.List;
 import java.util.Map;
@@ -322,7 +321,7 @@ public class VragenlijstWerkEnGehoor {
     }
 
     private int nummeringFormulierOnderdeel(int i, FormulierOnderdeel onderdeel) {
-        for (FormulierObject object : onderdeel.getOnderdeelen()) {
+        for (FormulierObject object : onderdeel.getOnderdelen()) {
             i = nummeringFormulierObject(i, object);
         }
         return i;
@@ -332,7 +331,7 @@ public class VragenlijstWerkEnGehoor {
         vraag.setVraagnummer(i++);
         int vraagNr = vraag.getVraagnummer();
         AntwoordController antwoordController = Singleton.getInstance().getMeerkeuzeAntwoordController();
-        for (FormulierObject object : vraag.getAllAntwoordLinks()) {
+        for (FormulierObject object : vraag.getAlleVervolgvragen()) {
             i = nummeringFormulierObject(i, object);
         }
 

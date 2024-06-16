@@ -1,24 +1,22 @@
 package nl.YEA.model;
 
-import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class FormulierOnderdeel extends FormulierObject{
-    private List<FormulierObject> onderdeelen;
+    private List<FormulierObject> onderdelen;
 
     public FormulierOnderdeel(String beschrijving) {
         super(beschrijving);
-        onderdeelen = new ArrayList<>();
+        onderdelen = new ArrayList<>();
     }
 
-    public FormulierOnderdeel(String beschrijving, List<FormulierObject> onderdeelen) {
+    public FormulierOnderdeel(String beschrijving, List<FormulierObject> onderdelen) {
         super(beschrijving);
-        this.onderdeelen = onderdeelen;
+        this.onderdelen = onderdelen;
     }
 
-    public List<FormulierObject> getOnderdeelen() {
-        return onderdeelen;
+    public List<FormulierObject> getOnderdelen() {
+        return onderdelen;
     }
 }

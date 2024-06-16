@@ -6,7 +6,7 @@ public abstract class Vraag extends FormulierObject{
     private int vraagnummer;
     private FormulierObject anyAwnserLink = null;
 
-    public abstract List<FormulierObject> getLinksByAntwoord(Antwoord antwoord);
+    public abstract List<FormulierObject> getVervolgvraagVoorAntwoord(Antwoord antwoord);
     public Vraag(String beschrijving) {
         super(beschrijving);
     }
@@ -19,7 +19,7 @@ public abstract class Vraag extends FormulierObject{
         this.anyAwnserLink = anyAwnserLink;
     }
 
-    public abstract List<FormulierObject> getAllAntwoordLinks();
+    public abstract List<FormulierObject> getAlleVervolgvragen();
 
     public void setVraagnummer(int vraagnummer) {
         this.vraagnummer = vraagnummer;
