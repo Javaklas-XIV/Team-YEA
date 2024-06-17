@@ -95,4 +95,15 @@ public class InOutputUtil {
         }
         return inzienScherm;
     }
+    public boolean handleOptioneel(){
+        while (true) {
+            printNl("dit onderdeel is optioneel wilt u dit skippen?(j/n)");
+            String input = getNextLine();
+            switch (input){
+                case "y"->{return true;}
+                case "n"->{return false;}
+                default -> printNl("ongeldige input probeer opniew.");
+            }
+        }
+    }
 }

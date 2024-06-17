@@ -19,7 +19,9 @@ public class NumeriekeVraagInvulScherm extends VraagInvulScherm {
         NumeriekAntwoordController naController = singleton.getNumeriekAntwoordController();
 
         inOutputUtil.printNl(nvController.getVraagBeschrijving(super.vraagNr));
-
+        if (nvController.getVraag(vraagNr).isOptioneel()){
+            inOutputUtil.handleOptioneel();
+        }
         int antwoord = getNumeriekeInput();
         boolean geldigAntwoord = false;
         while (!geldigAntwoord) {

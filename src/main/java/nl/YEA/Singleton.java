@@ -13,6 +13,7 @@ import nl.YEA.controller.MeerkeuzeAntwoordController;
 import nl.YEA.controller.MeerkeuzeVraagController;
 
 import nl.YEA.controller.VraagController;
+import nl.YEA.model.FormulierObject;
 import nl.YEA.model.Vraag;
 import nl.YEA.repos.IngevuldeVragenlijstRepo;
 
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class Singleton {
     private static Singleton singletonInstance;
-    private List<Vraag> vragenlijst;
+    private List<FormulierObject> vragenlijst;
     private VraagController invulController;
     private NumeriekeVraagController numeriekeVraagController;
     private NumeriekAntwoordController numeriekAntwoordController;
@@ -37,7 +38,7 @@ public class Singleton {
     private EntityManager em = mySQL.createEntityManager();
 
     private Singleton() {
-        vragenlijst = new VragenlijstWerkEnGehoor().vragenlijstWerkEnGehoorSamenstellen();
+
         invulController = new VraagController();
         repo = new IngevuldeVragenlijstRepo(em);
         numeriekeVraagController = new NumeriekeVraagController();
@@ -59,7 +60,10 @@ public class Singleton {
         return singletonInstance;
     }
 
-    public List<Vraag> getVragenlijst() {
+    public List<FormulierObject> getVragenlijst() {
+        if (vragenlijst == null) {
+            vragenlijst = new VragenlijstWerkEnGehoor().vragenlijstWerkEnGehoorSamenstellen();
+        }
         return vragenlijst;
     }
 

@@ -6,7 +6,7 @@ import nl.YEA.controller.OpenAntwoordController;
 import nl.YEA.controller.OpenVraagController;
 import nl.YEA.model.Vraag;
 
-public class OpenVraagInvulScherm extends VraagInvulScherm{
+public class OpenVraagInvulScherm extends VraagInvulScherm {
 
     public OpenVraagInvulScherm(int vraag) {
         super(vraag);
@@ -23,11 +23,11 @@ public class OpenVraagInvulScherm extends VraagInvulScherm{
         String beschrijving = openVraagController.getVraagBeschrijving(super.vraagNr);
         int vraagnummer = openVraagController.getVraag(super.vraagNr).getVraagnummer();
         boolean running = true;
-
-
+        inOutputUtil.print(beschrijving + "\n");
+        if (openVraagController.getVraag(vraagNr).isOptioneel()) {
+            inOutputUtil.handleOptioneel();
+        }
         while (running) {
-            inOutputUtil = InOutputUtil.getInstance();
-            inOutputUtil.printNl(beschrijving);
             String input = inOutputUtil.getNextLine();
             long max = openVraagController.getmaxAantalTekens(vraagNr);
             if (input.length() < max && !input.isEmpty()) {
